@@ -1,0 +1,32 @@
+<?xml encoding="UTF-8"?>
+<!ELEMENT dictionary (elements*,uids*,statuses*)>
+
+<!ELEMENT elements (element*)>
+<!ATTLIST elements type (Command|Data|FileMetaInfo|DicomDir) #REQUIRED>
+
+<!ELEMENT element EMPTY>
+<!ATTLIST element tag     CDATA #REQUIRED
+                  name    CDATA #REQUIRED
+                  vr      CDATA "UN"
+                  vm      CDATA "1"
+                  retired (true|false) "false"
+                  key     CDATA #REQUIRED>
+
+<!ELEMENT uids (uid*)>
+<!ATTLIST uids type (TransferSyntax|ServiceClass|SOPClass|MetaSOPClass|SOPInstance|ApplicationContextName|CodingScheme|SynchronizationFrameOfReference) #REQUIRED>
+
+<!ELEMENT uid EMPTY>
+<!ATTLIST uid value   CDATA #REQUIRED
+              name    CDATA #REQUIRED
+              retired (true|false) "false"
+              key     CDATA #REQUIRED
+              dirrecord CDATA #IMPLIED>
+              
+<!ELEMENT statuses (status*)>
+<!ATTLIST statuses service CDATA #IMPLIED>
+
+<!ELEMENT status EMPTY>
+<!ATTLIST status code   CDATA #REQUIRED
+                 name   CDATA #REQUIRED
+                 type  (Success|Pending|Cancel|Warning|Failure) #REQUIRED
+                 key    CDATA #REQUIRED>

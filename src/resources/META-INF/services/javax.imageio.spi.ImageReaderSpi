@@ -1,0 +1,2 @@
+# javax.imageio.spi.ImageReaderSpi v1.0 Mar 9th, 2002 
+org.dcm4cheri.imageio.plugins.DcmImageReaderSpi

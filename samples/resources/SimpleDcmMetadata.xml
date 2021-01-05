@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<dataset>
+<elm tag="00280010" vr="US" name="Rows">
+<val vm="0" len="0" data=""/>
+</elm>
+<elm tag="00280011" vr="US" name="Columns">
+<val vm="0" len="0" data=""/>
+</elm>
+<elm tag="00281050" vr="DS" name="Window Center">
+<val vm="0" len="0" data=""/>
+</elm>
+<elm tag="00281051" vr="DS" name="Window Width">
+<val vm="0" len="0" data=""/>
+</elm>
+<elm tag="00281052" vr="DS" name="Rescale Intercept">
+<val vm="0" len="0" data=""/>
+</elm>
+<elm tag="00281053" vr="DS" name="Rescale Slope">
+<val vm="0" len="0" data=""/>
+</elm>
+</dataset>

@@ -1,0 +1,22 @@
+<!ELEMENT dicomfile (filemetainfo?, dataset)>
+<!ELEMENT filemetainfo (preamble?, attr*)>
+<!ELEMENT preamble (#PCDATA)>
+<!ELEMENT dataset (attr*)>
+<!ELEMENT attr (#PCDATA | item)*>
+<!ELEMENT item (#PCDATA | attr)*>
+
+<!ATTLIST attr tag CDATA #REQUIRED>
+<!ATTLIST attr vr (AE | AS | AT | CS | DA | DS | DT | FL |
+                   FD | IS | LO | LT | OB | OF | OW | PN |
+                   SH | SL | SQ | SS | ST | TM | UI | UL |
+                   UN | US | UT) #IMPLIED>
+<!ATTLIST attr vm CDATA #IMPLIED>
+<!ATTLIST attr pos CDATA #IMPLIED>
+<!ATTLIST attr len CDATA #IMPLIED>
+<!ATTLIST attr name CDATA #IMPLIED>
+<!ATTLIST attr src CDATA #IMPLIED>
+<!ATTLIST attr hide (true | false) "false">
+
+<!ATTLIST item id CDATA #IMPLIED>
+<!ATTLIST item len CDATA #IMPLIED>
+<!ATTLIST item pos CDATA #IMPLIED>

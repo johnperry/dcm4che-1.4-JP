@@ -1,0 +1,6 @@
+#javac options
+javac.debug=on
+javac.deprecation=off
+javac.optimize=on
+javac.source=1.4
+javac.target=1.4

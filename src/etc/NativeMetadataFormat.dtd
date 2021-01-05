@@ -1,0 +1,111 @@
+<!-- ======================================================================== -->
+<!--                                                                          -->
+<!--  This is the DTD (Document Type Definition) of the nativeMetadataFormat  -->
+<!--  as implemented by the dcm4cheri reference implementation.               -->
+<!--                                                                          -->
+<!--  Copyright (c) 2002 by TIANI MEDGRAPH AG <gunter.zeilinger@tiani.com>    -->
+<!--                                                                          -->
+<!--  This file is part of dcm4che; a DICOM implementation in Java.           -->
+<!--                                                                          -->
+<!--  This library is free software; you can redistribute it and/or modify    -->
+<!--  it under the terms of the GNU Lesser General Public License as          -->
+<!--  published by the Free Software Foundation; either version 2 of the      -->
+<!--  License, or (at your option) any later version.                         -->
+<!--                                                                          -->
+<!--  This library is distributed in the hope that it will be useful, but     -->
+<!--  WITHOUT ANY WARRANTY; without even the implied warranty of              -->
+<!--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU       -->
+<!--  Lesser General Public License for more details.                         -->
+<!--                                                                          -->
+<!-- ======================================================================== -->
+
+
+<!ELEMENT dicomfile (filemetainfo?, dataset?)>
+
+
+<!ELEMENT filemetainfo (elm)*>
+  <!-- DICOM File Meta Information as defined in PS 3.10-7.1 -->
+  <!ATTLIST filemetainfo preamble #CDATA #IMPLIED>
+    <!-- 128 byte File Preamble.                                            -->
+    <!-- Data format: Each byte is encoded as a hexadecimal number with two -->
+    <!-- digits seperated by the character '\'.                             -->
+
+
+<!ELEMENT dataset (elm)*>
+  <!-- Data Set with Data Elements, except the Pixel Data. -->
+
+
+<!ELEMENT elm (val | seq)>
+  <!-- Data Element, contains single Value or Sequence. -->
+  <!ATTLIST elm tag #CDATA #REQUIRED>
+    <!-- Data element tag as 4 byte hex number                       -->
+    <!-- Data format: The string ggggeeee with g = group number and  -->
+    <!-- e = element number as hexadecimal nubers.                   -->
+  <!ATTLIST elm vr (AE | AS | AT | CS | DA | DS | DT | FL |
+                    FD | IS | LO | LT | OB | OW | PN | SH |
+                    SL | SQ | SS | ST | TM | UI | UL | UN |
+                    US | UT) #REQUIRED>
+    <!-- Value representation.                                       -->
+    <!-- Data format: As described in PS 3.5-Table 6.2.1             -->
+  <!ATTLIST item pos #CDATA #REQUIRED>
+    <!-- The index of the first byte of the attribute in the stream. -->
+    <!-- Data format: A decimal integer string of characters         -->
+  <!ATTLIST elm name #CDATA #IMPLIED>
+    <!-- Attribute name -->
+    <!-- Note: If no entry is found in the dictionary (e.g. for      --> 
+    <!-- private Attributes) the atribute is omitted                 -->
+    <!-- Data format: A string of characters                         -->
+
+
+<!ELEMENT val>
+  <!-- Value of Data Element. -->
+  <!ATTLIST val vm #CDATA #REQUIRED>
+    <!-- Number of entries in the value data attribute.      -->
+    <!-- Data format: A decimal integer string of characters -->
+  <!ATTLIST val len #CDATA #REQUIRED>
+    <!-- Value length.                                       -->
+    <!-- Data format: A decimal integer string of characters -->
+  <!ATTLIST val data #CDATA #REQUIRED>
+    <!-- Value data -->
+    <!-- Note: If the Value Multiplicity is > 1, the values are seperated -->
+    <!-- by the character '\'                                             -->
+    <!-- Note: If the Value Representation is UN or OB, each byte is      -->
+    <!-- encoded as a hexadecimal number with two digits seperated by     -->
+    <!-- the character '\'.                                               -->
+    <!-- Note: If the Value Representation is OW, each word of two        -->
+    <!-- consecutive bytes is encoded as a hexadecimal number with four   -->
+    <!-- digits seperated by the character '\'.                           -->
+    <!-- Data type: A string of characters                                -->
+
+
+<!ELEMENT seq (item | frag)*>
+  <!-- Sequence of Items or Data Fragments. -->
+  <!ATTLIST seq len #CDATA #REQUIRED>
+    <!-- Sequence length or -1 for undefined length          -->
+    <!-- Data format: A decimal integer string of characters -->
+
+
+<!ELEMENT item (elm)*>
+  <!-- Sequence Item, contains nested Data Elements. -->
+  <!ATTLIST item id #CDATA #REQUIRED>
+    <!-- Item index, starting with 1.                                -->
+    <!-- Data format: A decimal integer string of characters         -->
+  <!ATTLIST item pos #CDATA #REQUIRED>
+    <!-- The index of the first byte of the attribute in the stream. -->
+    <!-- Data format: A decimal integer string of characters         -->
+  <!ATTLIST item len #CDATA #REQUIRED>
+    <!-- Item length or -1 for undefined length.                     -->
+    <!-- Data format: A decimal integer string of characters         -->
+
+
+<!ELEMENT frag>
+  <!-- Data fragment. -->
+  <!ATTLIST frag id #CDATA #REQUIRED>
+    <!-- Data fragment index, starting with 1                -->
+    <!-- Data format: A decimal integer string of characters -->
+  <!ATTLIST frag len #CDATA #REQUIRED>
+    <!-- Data fragment length                                -->
+    <!-- Data format: A decimal integer string of characters -->
+  <!ATTLIST frag data #CDATA #REQUIRED>
+    <!-- Fragment data                                       -->
+    <!-- Data format: A string of characters                 -->

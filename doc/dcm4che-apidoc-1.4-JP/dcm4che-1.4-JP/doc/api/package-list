@@ -1,0 +1,15 @@
+org.dcm4che
+org.dcm4che.auditlog
+org.dcm4che.client
+org.dcm4che.data
+org.dcm4che.dict
+org.dcm4che.hl7
+org.dcm4che.image
+org.dcm4che.imageio.plugins
+org.dcm4che.log
+org.dcm4che.media
+org.dcm4che.net
+org.dcm4che.server
+org.dcm4che.srom
+org.dcm4che.tools.printscu
+org.dcm4che.util

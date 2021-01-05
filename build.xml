@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+
+<project name="dcm4che" basedir="." default="all">
+
+   <!-- Allow user to adjust build properties without
+   modifying this build script.
+   -->
+   <property file="build.properties"/>
+   <property file="../build.properties" />
+
+   <property name="name" value="dcm4che"/>
+   <property name="version" value="1.4-JP"/>
+
+   <property name="javac.debug" value="on"/>
+   <property name="javac.deprecation" value="off"/>
+   <property name="javac.optimize" value="on"/>
+   <property name="javac.source" value="1.4"/>
+   <property name="javac.target" value="1.4"/>
+
+   <target name="init">
+		<tstamp>
+			<format property="TODAY" pattern="yyyy.MM.dd"/>
+			<format property="today" pattern="yyyy.MM.dd"/>
+			<format property="now" pattern="HH:mm:ss z"/>
+		</tstamp>
+		<echo message="Time now ${now}"/>
+		<echo message="ant.java.version = ${ant.java.version}" />
+		<echo message="user.home = ${user.home}"/>
+		<echo message="java.home = ${java.home}"/>
+		<echo message="ant.home = ${ant.home}"/>
+		<echo message="java.class.path = ${java.class.path}"/>
+   </target>
+
+   <!-- set global properties for this build -->
+   <property name="src.dir" value="${basedir}/src"/>
+   <property name="src.java.dir" value="${src.dir}/java"/>
+   <property name="src.etc.dir" value="${src.dir}/etc"/>
+   <property name="src.res.dir" value="${src.dir}/resources"/>
+   <property name="test.dir" value="${basedir}/test"/>
+   <property name="test.java.dir" value="${test.dir}/java"/>
+   <property name="test.conf.dir" value="${test.dir}/conf"/>
+   <property name="samples.dir" value="${basedir}/samples"/>
+   <property name="samples.java.dir" value="${samples.dir}/java"/>
+   <property name="samples.conf.dir" value="${samples.dir}/conf"/>
+   <property name="samples.data.dir" value="${samples.dir}/data"/>
+   <property name="samples.res.dir" value="${samples.dir}/resources"/>
+   <property name="lib.dir" value="${basedir}/lib"/>
+   <property name="doc.dir" value="${basedir}/doc"/>
+
+   <property name="build.dir" value="${basedir}/build"/>
+   <property name="build.tmp.dir" value="${build.dir}/tmp"/>
+   <property name="build.lib.dir" value="${build.dir}/lib"/>
+   <property name="build.generate.dir" value="${build.dir}/generate"/>
+   <property name="build.classes.dir" value="${build.dir}/classes"/>
+   <property name="build.bin.dir" value="${build.dir}/bin"/>
+   <property name="build.res.dir" value="${build.dir}/resources"/>
+   <property name="build.javadocs.dir" value="${build.dir}/doc/api"/>
+   <property name="build.reports.dir" value="${build.dir}/reports"/>
+   <property name="dist" value="${name}-${version}"/>
+   <property name="dist.dir" value="${build.dir}/${dist}"/>
+
+   <path id="base.path">
+      <pathelement location="${lib.dir}/junit.jar" />
+      <pathelement location="${lib.dir}/getopt.jar" />
+      <pathelement location="${lib.dir}/log4j.jar" />
+      <pathelement location="${lib.dir}/majix.jar" />
+      <pathelement location="${build.classes.dir}" />
+      <pathelement location="${build.res.dir}" />
+      <pathelement location="${test.conf.dir}" />
+      <pathelement location="${lib.dir}/jai_imageio.jar" />
+	  <pathelement location="${lib.dir}/slf4j-log4j12-1.6.1.jar" />
+	  <pathelement location="${lib.dir}/slf4j-api-1.6.1.jar" />
+   </path>
+
+   <target name="clean" description="Clean out the build directories" >
+		<delete dir="${build.dir}"/>
+   </target>
+
+   <target name="main" depends="jar"
+           description="Compile and build JAR files (default target)"/>
+
+   <target name="all" depends="clean, release"
+					description="Clean, rebuild all, generate distribution ZIP archives">
+		<tstamp>
+			<format property="end" pattern="HH:mm:ss"/>
+		</tstamp>
+		<echo message="Time now ${end}"/>
+   </target>
+
+   <!-- Generate java source from XML via XSLT -->
+   <target name="xslt-generate" depends="init">
+      <mkdir dir="${build.generate.dir}/org/dcm4che/dict"/>
+      <xslt processor="trax"
+             style="${src.etc.dir}/Tags.xsl"
+             in="${src.etc.dir}/dictionary.xml"
+             out="${build.generate.dir}/org/dcm4che/dict/Tags.java"
+      />
+
+      <xslt processor="trax"
+             style="${src.etc.dir}/VRMap.xsl"
+             in="${src.etc.dir}/dictionary.xml"
+              out="${build.generate.dir}/org/dcm4che/dict/VRMap.java"
+      />
+
+      <xslt processor="trax"
+             style="${src.etc.dir}/UIDs.xsl"
+             in="${src.etc.dir}/dictionary.xml"
+             out="${build.generate.dir}/org/dcm4che/dict/UIDs.java"
+      />
+
+      <xslt processor="trax"
+             style="${src.etc.dir}/DirRecordTypes.xsl"
+             in="${src.etc.dir}/dictionary.xml"
+             out="${build.generate.dir}/org/dcm4che/media/DirRecordTypes.java"
+      />
+
+      <xslt processor="trax"
+             style="${src.etc.dir}/Status.xsl"
+             in="${src.etc.dir}/dictionary.xml"
+             out="${build.generate.dir}/org/dcm4che/dict/Status.java"
+      />
+   </target>
+
+   <target name="compile" depends="xslt-generate">
+      <mkdir dir="${build.classes.dir}"/>
+      <javac
+         destdir="${build.classes.dir}"
+         classpathref="base.path"
+         debug="${javac.debug}"
+         deprecation="${javac.deprecation}"
+         optimize="${javac.optimize}"
+         source="${javac.source}"
+         target="${javac.target}"
+         includeantruntime="false"
+      >
+         <src path="${build.generate.dir}"/>
+         <src path="${src.java.dir}"/>
+		 <!--
+         <src path="${samples.java.dir}"/>
+         <src path="${test.java.dir}"/>
+		 -->
+      </javac>
+   </target>
+
+   <!-- Compile resource files if necessary -->
+   <target name="compile-res" depends="compile" unless="res.uptodate">
+      <mkdir dir="${build.res.dir}/org/dcm4cheri/dict"/>
+      <java classname="org.dcm4cheri.dict.DictionaryFactoryImpl"
+            classpathref="base.path"
+            fork="yes">
+         <arg value="${src.etc.dir}/dictionary.xml"/>
+         <arg value="${build.res.dir}"/>
+      </java>
+   </target>
+
+   <target name="prepare-res" depends="init">
+      <uptodate property="res.uptodate"
+	        targetfile="${build.res.dir}/org/dcm4cheri/dict/TagDictionary.ser">
+         <srcfiles dir="${src.etc.dir}" includes="dictionary.xml"/>
+      </uptodate>
+      <antcall target="compile-res"/>
+      <filter token="VERSIONNAME" value="dcm4che-${version}"/>
+      <filter token="VERSION" value="${version}"/>
+      <filter token="TODAY" value="${TODAY}"/>
+      <copy todir="${build.res.dir}" filtering="true">
+         <fileset dir="${src.res.dir}"
+                  includes="**/*.mf,**/*.properties"/>
+         <fileset dir="${samples.res.dir}"
+                  includes="**/*.mf,**/*.properties"/>
+      </copy>
+      <copy todir="${build.res.dir}">
+         <fileset dir="${src.res.dir}"
+                  excludes="*/*.nbattrs,**/*.mf,**/*.properties"/>
+         <fileset dir="${samples.res.dir}"
+                  excludes="*/*.nbattrs,**/*.mf,**/*.properties"/>
+      </copy>
+   </target>
+
+   <target name="test" depends="compile,prepare-res"
+           description="Run the junit tests">
+      <mkdir dir="${build.reports.dir}"/>
+      <junit printsummary="true" fork="yes" dir="${test.conf.dir}">
+         <classpath refid="base.path"/>
+         <formatter type="xml" />
+         <test name="org.dcm4che.data.DcmParserTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.data.DatasetTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.data.DatasetSerializerTest" todir="${build.reports.dir}"/>
+
+         <test name="org.dcm4che.dict.TagDictionaryTest" todir="${build.reports.dir}"/>
+
+         <test name="org.dcm4che.media.DirReaderTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.media.DirWriterTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.media.DirBuilderTest" todir="${build.reports.dir}"/>
+
+         <test name="org.dcm4che.net.AAssociateRQTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.net.AAssociateACTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.net.AAssociateRJTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.net.PDataTFTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.net.AReleaseRPTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.net.AReleaseRQTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.net.AAbortTest" todir="${build.reports.dir}"/>
+
+         <test name="org.dcm4che.srom.SRDocumentFactoryTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.srom.ReferencedContentTest" todir="${build.reports.dir}"/>
+         <test name="org.dcm4che.srom.HL7SRExportTest" todir="${build.reports.dir}"/>
+
+         <test name="org.dcm4che.hl7.HL7MessageTest" todir="${build.reports.dir}"/>
+
+         <test name="org.dcm4che.util.UIDGeneratorTest" todir="${build.reports.dir}"/>
+	  </junit>
+      <junitreport todir="${build.reports.dir}">
+         <fileset dir="${build.reports.dir}" includes="TEST-*.xml"/>
+         <report format="frames" todir="${build.reports.dir}/html"/>
+      </junitreport>
+   </target>
+
+   <target name="test-dirreader" depends="compile,prepare-res">
+      <mkdir dir="${build.reports.dir}"/>
+      <junit printsummary="true" fork="yes" dir="${test.conf.dir}">
+         <classpath refid="base.path"/>
+         <formatter type="xml" />
+         <test name="org.dcm4che.media.DirReaderTest" todir="${build.reports.dir}"/>
+      </junit>
+      <junitreport todir="${build.reports.dir}">
+         <fileset dir="${build.reports.dir}" includes="TEST-*.xml"/>
+         <report format="frames" todir="${build.reports.dir}/html"/>
+      </junitreport>
+   </target>
+
+   <target name="jar" depends="compile,prepare-res">
+      <mkdir dir="${build.lib.dir}"/>
+      <jar jarfile="${build.lib.dir}/dcm4che.jar">
+        	<manifest>
+				<attribute name="Class-Path"
+					value="log4j.jar slf4j-api-1.6.1.jar slf4j-log4j12-1.6.1.jar dcm4che-imageio-rle-2.0.25.jar jai_imageio.jar clibwrapper_jiio.jar"/>
+				<attribute name="Implementation-Title" value="dcm4che"/>
+				<attribute name="Implementation-Version" value="${version} ${today}"/>
+				<attribute name="Implementation-Vendor" value="dcm4che.org (gunterze@gmail.com [JP])"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}"
+                    includes="org/dcm4che*/**"
+                    excludes="**/*Test*"/>
+           <fileset dir="${build.res.dir}"
+                    includes="org/dcm4che*/**,META-INF/services/**"/>
+      </jar>
+
+      <mkdir dir="${build.bin.dir}"/>
+	  <!--
+      <jar jarfile="${build.bin.dir}/acr2dcm.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Acr2Dcm"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Acr2Dcm*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/dcm2jpg.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Dcm2Jpg"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Dcm2Jpg*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/dcm2xml.jar">
+         	<manifest>
+				<attribute name="Main-Class" value="Dcm2Xml"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+          <fileset dir="${build.classes.dir}" includes="Dcm2Xml*"/>
+           <fileset dir="${build.res.dir}" includes="Dcm2Xml2.xsl"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/xml2dcm.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Xml2Dcm"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Xml2Dcm*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/dcmdir.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="DcmDir"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="DcmDir*"/>
+           <fileset dir="${build.res.dir}" includes="DcmDir.properties"/>
+           <fileset dir="${build.res.dir}" includes="Dcm2Xml2.xsl"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/dcmrcv.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="DcmRcv"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="DcmRcv*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="DcmRcv*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/dcmsnd.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="DcmSnd"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="DcmSnd*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="DcmSnd*"/>
+      </jar>
+     <jar jarfile="${build.bin.dir}/dcmgen.jar">
+                <manifest>
+                 <attribute name="Main-Class" value="DcmGen"/>
+                 <attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+                </manifest>
+           <fileset dir="${build.classes.dir}" includes="DcmGen*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="DcmGen*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/hl7snd.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Hl7Snd"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Hl7Snd*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="Hl7Snd*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/hl7rcv.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Hl7Rcv"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Hl7Rcv*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="Hl7Rcv*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/mppssnd.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="MppsSnd"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="MppsSnd*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="MppsSnd*"/>
+      </jar>
+    <jar jarfile="${build.bin.dir}/movescu.jar">
+      	<manifest>
+				<attribute name="Main-Class" value="MoveScu"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+         <fileset dir="${build.classes.dir}" includes="MoveScu*,Configuration*"/>
+         <fileset dir="${build.res.dir}" includes="MoveScu*"/>
+    </jar>
+      <jar jarfile="${build.bin.dir}/mvstudy.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="MoveStudy"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="MoveStudy*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="MoveStudy*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/syslog.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Syslog"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Syslog*"/>
+           <fileset dir="${build.res.dir}" includes="Syslog*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/imgdisp.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="ImageDisplay"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="ImageDisplay*,ToolBarButton*,ImageBox*"/>
+           <fileset dir="${build.res.dir}" includes="*.gif"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/imgdump.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="ImageDumper"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="ImageDumper*,de/**"/>
+           <fileset dir="${build.res.dir}" includes="SimpleDcmMetadata*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/imgflip.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="ImageFlipper"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="ImageFlipper*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/imgread.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="ImageReadParamDemo"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="ImageReadParamDemo*,ReadThread*,ReadParamPanel*,ImagePanel*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/syslogd.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Syslogd"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Syslogd*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/mcmscu.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="MediaCreationMgtScu"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="MediaCreationMgtScu*,Configuration*"/>
+           <fileset dir="${build.res.dir}" includes="MediaCreationMgtScu*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/rtf2sr.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="Rtf2Sr"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar majix.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="Rtf2Sr*"/>
+           <fileset dir="${build.res.dir}" includes="Rtf2Sr*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/printscu.jar">
+        	<manifest>
+				<attribute name="Main-Class" value="org.dcm4che.tools.printscu.PrintSCUFrame"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+           <fileset dir="${build.classes.dir}" includes="org/dcm4che/tools/printscu/*"/>
+      </jar>
+      <jar jarfile="${build.bin.dir}/pdf2dcm.jar">
+      		<manifest>
+				<attribute name="Main-Class" value="Pdf2Dcm"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+         	<fileset dir="${build.classes.dir}" includes="Pdf2Dcm*,Configuration*"/>
+      </jar>
+    <jar jarfile="${build.bin.dir}/hpqrscu.jar">
+      	<manifest>
+				<attribute name="Main-Class" value="HPQRScu"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+	    	</manifest>
+         <fileset dir="${build.classes.dir}" includes="HPQRScu*,Configuration*"/>
+         <fileset dir="${build.res.dir}" includes="HPQRScu*"/>
+    </jar>
+	<jar jarfile="${build.bin.dir}/imgcodec.jar">
+		<manifest>
+			<attribute name="Main-Class" value="TranscoderMain"/>
+			<attribute name="Class-Path" value="./ ../lib/dcm4che.jar getopt.jar"/>
+			<attribute name="Implementation-Version" value="${version}"/>
+		</manifest>
+        <fileset dir="${build.classes.dir}" includes="Transcoder*,PixelDataParam*"/>
+        <fileset dir="${build.res.dir}" includes="TranscoderMain.properties"/>
+	</jar>
+    <jar jarfile="${build.bin.dir}/lsiioreg.jar">
+      	<manifest>
+				<attribute name="Main-Class" value="ListIIORegistry"/>
+				<attribute name="Class-Path" value="./ ../lib/dcm4che.jar"/>
+	    	</manifest>
+         <fileset dir="${build.classes.dir}" includes="ListIIORegistry.class"/>
+    </jar>
+	-->
+   </target>
+
+   <target name="check-javadoc" depends="xslt-generate">
+      <uptodate property="uptodate-javadoc"
+	             targetfile="${build.javadocs.dir}/index.html">
+         <srcfiles dir="${src.java.dir}" includes="org/dcm4che/**/*.java"/>
+         <srcfiles dir="${build.generate.dir}" includes="org/dcm4che/**/*.java"/>
+      </uptodate>
+   </target>
+
+   <target name="doc" depends="check-javadoc" unless="uptodate-javadoc"
+           description="Generate javadoc for dcm4che API">
+      <mkdir dir="${build.javadocs.dir}"/>
+      <javadoc destdir="${build.javadocs.dir}" sourcepath="${src.java.dir};${build.generate.dir}"
+           doctitle="${name} ${version}" windowtitle="${name} ${version}">
+         <package name="org.dcm4che.*"/>
+         <classpath>
+           <pathelement path="${basedir}/lib/log4j.jar"/>
+         </classpath>
+      </javadoc>
+   </target>
+
+   <target name="release" depends="jar, doc"
+           description="Build destribution ZIP file">
+      <mkdir dir="${dist.dir}"/>
+      <copy todir="${dist.dir}">
+         <fileset dir="${build.dir}" includes="lib/**,bin/**,doc/**"/>
+         <fileset dir="${basedir}" includes="lib/log4j.jar,lib/slf4j-api-1.6.1.jar,lib/slf4j-log4j12-1.6.1.jar,lib/jai_imageio.jar,lib/clibwrapper_jiio.jar,lib/dcm4che-imageio-rle-2.0.25.jar,bin/*"/>
+         <fileset dir="${doc.dir}" excludes="BUILD,**/.nbattrs"/>
+         <fileset dir="${src.dir}" includes="etc/NativeMetadataFormat.dtd"/>
+      </copy>
+      <copy todir="${dist.dir}/bin">
+         <fileset dir="${lib.dir}" includes="getopt.jar,majix.jar"/>
+         <fileset dir="${samples.conf.dir}"/>
+         <fileset dir="${samples.data.dir}"/>
+      </copy>
+
+	<!--
+      <mkdir dir="${dist.dir}/samples/data"/>
+      <copy todir="${dist.dir}/samples/data">
+         <fileset dir="${samples.java.dir}">
+            <include name="Acr2Dcm.java"/>
+            <include name="Dcm2Xml.java"/>
+            <include name="Xml2Dcm.java"/>
+            <include name="Pdf2Dcm.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="Dcm2Xml2.xsl"/>
+         </fileset>
+      </copy>
+
+      <mkdir dir="${dist.dir}/samples/imageio"/>
+      <copy todir="${dist.dir}/samples/imageio">
+         <fileset dir="${samples.java.dir}">
+            <include name="de/**/*.java"/>
+            <include name="Dcm2Jpg.java"/>
+            <include name="ImageDumper.java"/>
+            <include name="ImageFlipper.java"/>
+            <include name="ImageReadParamDemo.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="DcmImageReader.properties"/>
+            <include name="SimpleDcmMetadata.xml"/>
+            <include name="SimpleDcmMetadata.xsl"/>
+         </fileset>
+      </copy>
+
+      <mkdir dir="${dist.dir}/samples/imgdisp"/>
+      <copy todir="${dist.dir}/samples/imgdisp">
+         <fileset dir="${samples.java.dir}">
+            <include name="ImageBox.java"/>
+            <include name="ImageDisplay.java"/>
+            <include name="ImageDisplayApplet.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="open.gif"/>
+         </fileset>
+      </copy>
+
+      <mkdir dir="${dist.dir}/samples/media"/>
+      <copy todir="${dist.dir}/samples/media">
+         <fileset dir="${samples.java.dir}">
+            <include name="DcmDir.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="DcmDir.xsl"/>
+            <include name="DcmDir.properties"/>
+         </fileset>
+      </copy>
+
+    <mkdir dir="${dist.dir}/samples/iftm"/>
+    <copy todir="${dist.dir}/samples/iftm">
+       <fileset dir="${samples.java.dir}">
+          <include name="de/iftm/dcm4che/services/**"/>
+          <include name="de/iftm/sample/*"/>
+       </fileset>
+    </copy>
+
+      <mkdir dir="${dist.dir}/samples/net"/>
+      <copy todir="${dist.dir}/samples/net">
+         <fileset dir="${samples.java.dir}">
+            <include name="Configuration.java"/>
+            <include name="DcmRcv.java"/>
+            <include name="DcmRcvFSU.java"/>
+            <include name="DcmSnd.java"/>
+            <include name="MppsSnd.java"/>
+            <include name="MoveScu.java"/>
+            <include name="MoveStudy.java"/>
+            <include name="HPQRScu.java"/>
+            <include name="Hl7Snd.java"/>
+            <include name="Hl7Rcv.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="DcmRcv.properties"/>
+            <include name="DcmSnd.properties"/>
+            <include name="MppsSnd.properties"/>
+            <include name="MoveStudy.properties"/>
+            <include name="HPQRScu.properties"/>
+            <include name="QueryStudyUIDs.properties"/>
+            <include name="Hl7Snd.properties"/>
+            <include name="Hl7Rcv.properties"/>
+         </fileset>
+      </copy>
+
+      <mkdir dir="${dist.dir}/samples/syslog"/>
+      <copy todir="${dist.dir}/samples/syslog">
+         <fileset dir="${samples.java.dir}">
+            <include name="Syslog.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="Syslog.properties"/>
+         </fileset>
+      </copy>
+
+      <mkdir dir="${dist.dir}/samples/rtf2sr"/>
+      <copy todir="${dist.dir}/samples/rtf2sr">
+         <fileset dir="${samples.java.dir}">
+            <include name="Rtf2Sr.java"/>
+         </fileset>
+         <fileset dir="${samples.res.dir}">
+            <include name="Rtf2Sr.properties"/>
+         </fileset>
+      </copy>
+		-->
+		
+      <zip zipfile="${build.dir}/${name}-${version}.zip"
+           basedir="${dist.dir}/.."
+           includes="${dist}/**"
+           excludes="${dist}/doc/**"/>
+      <zip zipfile="${build.dir}/${name}-apidoc-${version}.zip"
+           basedir="${dist.dir}/.."
+           includes="${dist}/doc/**"/>
+      <zip zipfile="${build.dir}/${name}-src-${version}.zip"
+           basedir="${basedir}"
+           excludes="build/**,test/conf/data/**,**/*.class,**/.nbattrs"/>
+   </target>
+
+</project>

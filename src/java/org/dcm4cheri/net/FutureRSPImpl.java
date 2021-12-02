@@ -112,7 +112,7 @@ implements DimseListener, AssociationListener, FutureRSP {
       while (!ready && !closed) wait();
       
       // handle reverse order of last rsp and close indication, caused
-      // by lausy Thread synchronisation
+      // by lousy Thread synchronisation
       if (!ready) wait(setAfterCloseTO);
       
       return doGet();

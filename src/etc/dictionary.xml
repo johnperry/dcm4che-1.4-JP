@@ -1,54 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is part of dcm4che, an implementation of DICOM(TM) in
- * Java(TM), available at http://sourceforge.net/projects/dcm4che.
- *
- * The Initial Developer of the Original Code is
- * TIANI MEDGRAPH AG.
- * Portions created by the Initial Developer are Copyright (C) 2001-2004
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- * Gunter Zeilinger <gunterze@gmail.com>.
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** -->
-<!-- $Id: dictionary.xml 16743 2012-03-26 14:26:35Z dsmith1547 $ -->
 <dictionary>
 
-<elements type="Command">
+ <elements type="Command">
   <element tag="(0000,0000)" name="Command Group Length" vr="UL" vm="1" key="CommandGroupLength"/>
+  <element tag="(0000,0001)" name="Command Length to End" vr="UL" vm="1" key="CommandLengthToEndRetired"/>
   <element tag="(0000,0002)" name="Affected SOP Class UID" vr="UI" vm="1" key="AffectedSOPClassUID"/>
   <element tag="(0000,0003)" name="Requested SOP Class UID" vr="UI" vm="1" key="RequestedSOPClassUID"/>
+  <element tag="(0000,0010)" name="Command Recognition Code" vr="SH" vm="1" key="CommandRecognitionCodeRetired"/>
   <element tag="(0000,0100)" name="Command Field" vr="US" vm="1" key="CommandField"/>
   <element tag="(0000,0110)" name="Message ID" vr="US" vm="1" key="MessageID"/>
   <element tag="(0000,0120)" name="Message ID Being Responded To" vr="US" vm="1" key="MessageIDToBeingRespondedTo"/>
+  <element tag="(0000,0200)" name="Initiator" vr="AE" vm="1" key="InitiatorRetired"/>
+  <element tag="(0000,0300)" name="Receiver" vr="AE" vm="1" key="ReceiverRetired"/>
+  <element tag="(0000,0400)" name="Find Location" vr="AE" vm="1" key="FindLocationRetired"/>
   <element tag="(0000,0600)" name="Move Destination" vr="AE" vm="1" key="MoveDestination"/>
   <element tag="(0000,0700)" name="Priority" vr="US" vm="1" key="Priority"/>
   <element tag="(0000,0800)" name="Command Data Set Type" vr="US" vm="1" key="DataSetType"/>
+  <element tag="(0000,0850)" name="Number of Matches" vr="US" vm="1" key="NumberOfMatchesRetired"/>
+  <element tag="(0000,0860)" name="Response Sequence Number" vr="US" vm="1" key="ResponseSequenceNumberRetired"/>
   <element tag="(0000,0900)" name="Status" vr="US" vm="1" key="Status"/>
   <element tag="(0000,0901)" name="Offending Element" vr="AT" vm="1-n" key="OffendingElement"/>
   <element tag="(0000,0902)" name="Error Comment" vr="LO" vm="1" key="ErrorComment"/>
@@ -64,14 +33,6 @@
   <element tag="(0000,1023)" name="Number of Warning Sub-operations" vr="US" vm="1" key="NumberOfWarningSubOperations"/>
   <element tag="(0000,1030)" name="Move Originator Application Entity Title" vr="AE" vm="1" key="MoveOriginatorAET"/>
   <element tag="(0000,1031)" name="Move Originator Message ID" vr="US" vm="1" key="MoveOriginatorMessageID"/>
-
-  <element tag="(0000,0001)" name="Command Length to End" vr="UL" vm="1" key="CommandLengthToEndRetired"/>
-  <element tag="(0000,0010)" name="Command Recognition Code" vr="SH" vm="1" key="CommandRecognitionCodeRetired"/>
-  <element tag="(0000,0200)" name="Initiator" vr="AE" vm="1" key="InitiatorRetired"/>
-  <element tag="(0000,0300)" name="Receiver" vr="AE" vm="1" key="ReceiverRetired"/>
-  <element tag="(0000,0400)" name="Find Location" vr="AE" vm="1" key="FindLocationRetired"/>
-  <element tag="(0000,0850)" name="Number of Matches" vr="US" vm="1" key="NumberOfMatchesRetired"/>
-  <element tag="(0000,0860)" name="Response Sequence Number" vr="US" vm="1" key="ResponseSequenceNumberRetired"/>
   <element tag="(0000,4000)" name="Dialog Receiver" vr="LT" vm="1" key="DialogReceiverRetired"/>
   <element tag="(0000,4010)" name="Terminal Type" vr="LT" vm="1" key="TerminalTypeRetired"/>
   <element tag="(0000,5010)" name="Message Set ID" vr="SH" vm="1" key="MessageSetIDRetired"/>
@@ -87,9 +48,9 @@
   <element tag="(0000,5190)" name="Erase" vr="CS" vm="1" key="EraseRetired"/>
   <element tag="(0000,51A0)" name="Print" vr="CS" vm="1" key="PrintRetired"/>
   <element tag="(0000,51B0)" name="Overlays" vr="US" vm="1-n" key="Overlays"/>
-</elements>
+ </elements>
 
-<elements type="FileMetaInfo">
+ <elements type="FileMetaInfo">
   <element tag="(0002,0000)" name="File Meta Information Group Length" vr="UL" vm="1" key="FileMetaInformationGroupLength"/>
   <element tag="(0002,0001)" name="File Meta Information Version" vr="OB" vm="1" key="FileMetaInformationVersion"/>
   <element tag="(0002,0002)" name="Media Storage SOP Class UID" vr="UI" vm="1" key="MediaStorageSOPClassUID"/>
@@ -112,9 +73,9 @@
   <element tag="(0002,0038)" name="RTV Flow Actual Frame Duration" vr="FD" vm="1" key="RTVFlowActualFrameDuration"/>
   <element tag="(0002,0100)" name="Private Information Creator UID" vr="UI" vm="1" key="PrivateInformationCreatorUID"/>
   <element tag="(0002,0102)" name="Private Information" vr="OB" vm="1" key="PrivateInformation"/>
-</elements>
+ </elements>
 
-<elements type="DicomDir">
+ <elements type="DicomDir">
   <element tag="(0004,1130)" name="File-set ID" vr="CS" vm="1" key="FileSetID"/>
   <element tag="(0004,1141)" name="File-set Descriptor File ID" vr="CS" vm="1-8" key="FileSetDescriptorFileID"/>
   <element tag="(0004,1142)" name="Specific Character Set of File-set Descriptor File" vr="CS" vm="1" key="SpecificCharacterSetOfFileSetDescriptorFile"/>
@@ -134,10 +95,10 @@
   <element tag="(0004,1512)" name="Referenced Transfer Syntax UID in File" vr="UI" vm="1" key="RefSOPTransferSyntaxUIDInFile"/>
   <element tag="(0004,151A)" name="Referenced Related General SOP Class UID in File" vr="UI" vm="1-n" key="RefRelatedGeneralSOPClassUIDInFile"/>
   <element tag="(0004,1600)" name="Number of References (Retired)" vr="UL" vm="1" key="NumberOfReferences" retired="true"/>
-</elements>
+ </elements>
 
-<elements type="Data">
-  <element tag="(xxxx,0000)" name="Group Length" vr="UL" vm="1" key="GroupLength"/>
+ <elements type="Data">
+  <element tag="(0006,0001)" name="Current Frame Functional Groups Sequence" vr="SQ" vm="1" key="CurrentFrameFunctionalGroupsSeq"/>
   <element tag="(0008,0001)" name="Length to End (Retired)" vr="UL" vm="1" key="LengthToEndRetired" retired="true"/>
   <element tag="(0008,0005)" name="Specific Character Set" vr="CS" vm="1-n" key="SpecificCharacterSet"/>
   <element tag="(0008,0006)" name="Language Code Sequence" vr="SQ" vm="1" key="LanguageCodeSeq"/>
@@ -221,6 +182,7 @@
   <element tag="(0008,0123)" name="Context Group Identification Sequence" vr="SQ" vm="1" key="ContextGroupIdentificationSeq"/>
   <element tag="(0008,0124)" name="Mapping Resource Identification Sequence" vr="SQ" vm="1" key="MappingResourceIdentificationSeq"/>
   <element tag="(0008,0201)" name="Timezone Offset From UTC" vr="SH" vm="1" key="TimezoneOffsetFromUTC"/>
+  <element tag="(0008,0202)" name="Unused1" vr="UN" vm="1" key="Unused1"/>
   <element tag="(0008,0220)" name="Responsible Group Code Sequence" vr="SQ" vm="1" key="ResponsibleGroupCodeSeq"/>
   <element tag="(0008,0221)" name="Equipment Modality" vr="CS" vm="1" key="EquipmentModality"/>
   <element tag="(0008,0222)" name="Manufacturer's Related Model Group" vr="LO" vm="1" key="ManufacturerRelatedModelGroup"/>
@@ -229,8 +191,8 @@
   <element tag="(0008,0302)" name="Private Creator Reference" vr="LO" vm="1" key="PrivateCreatorReference"/>
   <element tag="(0008,0303)" name="Block Identifying Information Status" vr="CS" vm="1" key="BlockIdentifyingInformationStatus"/>
   <element tag="(0008,0304)" name="Nonidentifying Private Elements" vr="US" vm="1-n" key="NonidentifyingPrivateElements"/>
-  <element tag="(0008,0306)" name="Identifying Private Elements" vr="US" vm="1-n" key="IdentifyingPrivateElements"/>
   <element tag="(0008,0305)" name="Deidentification Action Sequence" vr="SQ" vm="1" key="DeidentificationActionSeq"/>
+  <element tag="(0008,0306)" name="Identifying Private Elements" vr="US" vm="1-n" key="IdentifyingPrivateElements"/>
   <element tag="(0008,0307)" name="Deidentification Action" vr="CS" vm="1" key="DeidentificationAction"/>
   <element tag="(0008,0308)" name="Private Data Element" vr="US" vm="1" key="PrivateDataElement"/>
   <element tag="(0008,0309)" name="Private Data Element Value Multiplicity" vr="UL" vm="1-3" key="PrivateDataElementValueMultiplicity"/>
@@ -751,6 +713,11 @@
   <element tag="(0016,008C)" name="GPS Area ​Information" vr="OB" vm="1" key="GPSAreaInformation"/>
   <element tag="(0016,008D)" name="GPS Date​ Stamp" vr="DT" vm="1" key="GPSDateStamp"/>
   <element tag="(0016,008E)" name="GPS Differential" vr="IS" vm="1" key="GPSDifferential"/>
+  <element tag="(0016,1001)" name="Light Source Polarization" vr="CS" vm="1" key="LightSourcePolarization"/>
+  <element tag="(0016,1002)" name="Emitter Color Temperature" vr="DS" vm="1" key="EmitterColorTemperature"/>
+  <element tag="(0016,1003)" name="Contact Method" vr="CS" vm="1" key="ContactMethod"/>
+  <element tag="(0016,1004)" name="Immersion Media" vr="CS" vm="1-n" key="ImmersionMedia"/>
+  <element tag="(0016,1005)" name="Optical Magnification Factor" vr="DS" vm="1" key="OpticalMagnificationFactor"/>
   <element tag="(0018,0010)" name="Contrast/Bolus Agent" vr="LO" vm="1" key="ContrastBolusAgent"/>
   <element tag="(0018,0012)" name="Contrast/Bolus Agent Sequence" vr="SQ" vm="1" key="ContrastBolusAgentSeq"/>
   <element tag="(0018,0013)" name="Contrast/Bolus T1 Relaxivity" vr="FL" vm="1" key="ContrastBolusT1Relaxivity"/>
@@ -922,6 +889,24 @@
   <element tag="(0018,11A3)" name="Compression Pressure" vr="DS" vm="1" key="CompressionPressure"/>
   <element tag="(0018,11A4)" name="Paddle Description" vr="LO" vm="1" key="PaddleDescription"/>
   <element tag="(0018,11A5)" name="Compression Contact Area" vr="DS" vm="1" key="CompressionContactArea"/>
+  <element tag="(0018,11B0)" name="Acquisition Mode" vr="LO" vm="1" key="AcquisitionMode"/>
+  <element tag="(0018,11B1)" name="Dose Mode Name" vr="LO" vm="1" key="DoseModeName"/>
+  <element tag="(0018,11B2)" name="Acquired Subtraction Mask Flag" vr="CS" vm="1" key="AcquiredSubtractionMaskFlag"/>
+  <element tag="(0018,11B3)" name="Fluoroscopy Persistence Flag" vr="CS" vm="1" key="FluoroscopyPersistenceFlag"/>
+  <element tag="(0018,11B4)" name="Fluoroscopy Last Image Hold Persistence Flag" vr="CS" vm="1" key="FluoroscopyLastImageHoldPersistenceFlag"/>
+  <element tag="(0018,11B5)" name="Upper Limit Number Of Persistent Fluoroscopy Frames" vr="IS" vm="1" key="UpperLimitNumberOfPersistentFluoroscopyFrames"/>
+  <element tag="(0018,11B6)" name="Contrast/Bolus Auto Injection Trigger Flag" vr="CS" vm="1" key="ContrastBolusAutoInjectionTriggerFlag"/>
+  <element tag="(0018,11B7)" name="Contrast/Bolus Injection Delay" vr="FD" vm="1" key="ContrastBolusInjectionDelay"/>
+  <element tag="(0018,11B8)" name="XA Acquisition Phase Details Sequence" vr="SQ" vm="1" key="XAAcquisitionPhaseDetailsSeq"/>
+  <element tag="(0018,11B9)" name="XA Acquisition Frame Rate" vr="FD" vm="1" key="XAAcquisitionFrameRate"/>
+  <element tag="(0018,11BA)" name="XA Plane Details Sequence" vr="SQ" vm="1" key="XAPlaneDetailsSeq"/>
+  <element tag="(0018,11BB)" name="Acquisition Field of View Label" vr="LO" vm="1" key="AcquisitionFieldOfViewLabel"/>
+  <element tag="(0018,11BC)" name="X-Ray Filter Details Sequence" vr="SQ" vm="1" key="XRayFilterDetailsSeq"/>
+  <element tag="(0018,11BD)" name="XA Acquisition Duration" vr="FD" vm="1" key="XAAcquisitionDuration"/>
+  <element tag="(0018,11BE)" name="Reconstruction Pipeline Type" vr="CS" vm="1" key="ReconstructionPipelineType"/>
+  <element tag="(0018,11BF)" name="Image Filter Details Sequence" vr="SQ" vm="1" key="ImageFilterDetailsSeq"/>
+  <element tag="(0018,11C0)" name="Applied Mask Subtraction Flag" vr="CS" vm="1" key="AppliedMaskSubtractionFlag"/>
+  <element tag="(0018,11C1)" name="Requested Series Description Code Sequence" vr="SQ" vm="1" key="RequestedSeriesDescriptionCodeSeq"/>
   <element tag="(0018,1200)" name="Date of Last Calibration" vr="DA" vm="1-n" key="DateOfLastCalibration"/>
   <element tag="(0018,1201)" name="Time of Last Calibration" vr="TM" vm="1-n" key="TimeOfLastCalibration"/>
   <element tag="(0018,1202)" name="DateTime of Last Calibration" vr="DT" vm="1" key="DateTimeOfLastCalibration"/>
@@ -1026,6 +1011,7 @@
   <element tag="(0018,4000)" name="Acquisition Comments (Retired)" vr="LT" vm="1" key="SeriesCommentsRetired" retired="true"/>
   <element tag="(0018,5000)" name="Output Power" vr="SH" vm="1-n" key="OutputPower"/>
   <element tag="(0018,5010)" name="Transducer Data" vr="LO" vm="1-n" key="TransducerData"/>
+  <element tag="(0018,5011)" name="Transducer Identification Sequence" vr="SQ" vm="1" key="TransducerIdentificationSeq"/>
   <element tag="(0018,5012)" name="Focus Depth" vr="DS" vm="1" key="FocusDepth"/>
   <element tag="(0018,5020)" name="Processing Function" vr="LO" vm="1" key="ProcessingFunction"/>
   <element tag="(0018,5021)" name="Postprocessing Function (Retired)" vr="LO" vm="1" key="PostprocessingFunction" retired="true"/>
@@ -1090,6 +1076,7 @@
   <element tag="(0018,6058)" name="Table of Pixel Values" vr="UL" vm="1-n" key="TableOfPixelValues"/>
   <element tag="(0018,605A)" name="Table of Parameter Values" vr="FL" vm="1-n" key="TableOfParameterValues"/>
   <element tag="(0018,6060)" name="R Wave Time Vector" vr="FL" vm="1-n" key="RWaveTimeVector"/>
+  <element tag="(0018,6070)" name="Active Image Area Overlay Group" vr="US" vm="1" key="ActiveImageAreaOverlayGroup"/>
   <element tag="(0018,7000)" name="Detector Conditions Nominal Flag" vr="CS" vm="1" key="DetectorConditionsNominalFlag"/>
   <element tag="(0018,7001)" name="Detector Temperature" vr="DS" vm="1" key="DetectorTemperature"/>
   <element tag="(0018,7004)" name="Detector Type" vr="CS" vm="1" key="DetectorType"/>
@@ -2354,6 +2341,13 @@
   <element tag="(003A,0300)" name="Multiplexed Audio Channels Description Code Sequence" vr="SQ" vm="1" key="MultiplexedAudioChannelsDescriptionCodeSeq"/>
   <element tag="(003A,0301)" name="Channel Identification Code" vr="IS" vm="1" key="ChannelIdentificationCode"/>
   <element tag="(003A,0302)" name="Channel Mode" vr="CS" vm="1" key="ChannelMode"/>
+  <element tag="(003A,0310)" name="Multiplex Group UID" vr="UI" vm="1" key="MultiplexGroupUID"/>
+  <element tag="(003A,0311)" name="Powerline Frequency" vr="DS" vm="1" key="PowerlineFrequency"/>
+  <element tag="(003A,0312)" name="Channel Impedance Sequence" vr="SQ" vm="1" key="ChannelImpedanceSeq"/>
+  <element tag="(003A,0313)" name="Impedance Value" vr="DS" vm="1" key="ImpedanceValue"/>
+  <element tag="(003A,0314)" name="Impedance Measurement DateTime" vr="DT" vm="1" key="ImpedanceMeasurementDateTime"/>
+  <element tag="(003A,0315)" name="Impedance Measurement Frequency" vr="DS" vm="1" key="ImpedanceMeasurementFrequency"/>
+  <element tag="(003A,0316)" name="Impedance Measurement Current Type" vr="CS" vm="1" key="ImpedanceMeasurementCurrentType"/>
   <element tag="(0040,0001)" name="Scheduled Station AE Title" vr="AE" vm="1-n" key="ScheduledStationAET"/>
   <element tag="(0040,0002)" name="Scheduled Procedure Step Start Date" vr="DA" vm="1" key="SPSStartDate"/>
   <element tag="(0040,0003)" name="Scheduled Procedure Step Start Time" vr="TM" vm="1" key="SPSStartTime"/>
@@ -2436,9 +2430,9 @@
   <element tag="(0040,0554)" name="Specimen UID" vr="UI" vm="1" key="SpecimenUID"/>
   <element tag="(0040,0555)" name="Acquisition Context Sequence" vr="SQ" vm="1" key="AcquisitionContextSeq"/>
   <element tag="(0040,0556)" name="Acquisition Context Description" vr="ST" vm="1" key="AcquisitionContextDescription"/>
-  <element tag="(0040,059A)" name="Specimen Type Code Sequence" vr="SQ" vm="1" key="SpecimenTypeCodeSeq"/>
   <element tag="(0040,0560)" name="Specimen Description Sequence" vr="SQ" vm="1" key="SpecimenDescriptionSeq"/>
   <element tag="(0040,0562)" name="Issuer of the Specimen Identifier Sequence" vr="SQ" vm="1" key="IssuerOfTheSpecimenIdentifierSeq"/>
+  <element tag="(0040,059A)" name="Specimen Type Code Sequence" vr="SQ" vm="1" key="SpecimenTypeCodeSeq"/>
   <element tag="(0040,0600)" name="Specimen Short Description" vr="LO" vm="1" key="SpecimenShortDescription"/>
   <element tag="(0040,0602)" name="Specimen Detailed Description" vr="UT" vm="1" key="SpecimenDetailedDescription"/>
   <element tag="(0040,0610)" name="Specimen Preparation Sequence" vr="SQ" vm="1" key="SpecimenPreparationSeq"/>
@@ -2555,6 +2549,7 @@
   <element tag="(0040,A028)" name="Documenting Organization Identifier Code Sequence (Trial) (Retired)" vr="SQ" vm="1" key="DocumentingOrganizationIdentifierCodeSequenceTrial" retired="true"/>
   <element tag="(0040,A030)" name="Verification DateTime" vr="DT" vm="1" key="VerificationDateTime"/>
   <element tag="(0040,A032)" name="Observation DateTime" vr="DT" vm="1" key="ObservationDateTime"/>
+  <element tag="(0040,A033)" name="Observation Start DateTime" vr="DT" vm="1" key="ObservationStartDateTime"/>
   <element tag="(0040,A040)" name="Value Type" vr="CS" vm="1" key="ValueType"/>
   <element tag="(0040,A043)" name="Concept Name Code Sequence" vr="SQ" vm="1" key="ConceptNameCodeSeq"/>
   <element tag="(0040,A047)" name="Measurement Precision Description (Trial) (Retired)" vr="LO" vm="1" key="MeasurementPrecisionDescriptionTrial" retired="true"/>
@@ -2650,6 +2645,14 @@
   <element tag="(0040,A731)" name="Relationship Sequence (Trial) (Retired)" vr="SQ" vm="1" key="RelationshipSequenceTrial" retired="true"/>
   <element tag="(0040,A732)" name="Relationship Type Code Sequence (Trial) (Retired)" vr="SQ" vm="1" key="RelationshipTypeCodeSequenceTrial" retired="true"/>
   <element tag="(0040,A744)" name="Language Code Sequence (Trial) (Retired)" vr="SQ" vm="1" key="LanguageCodeSequenceTrial" retired="true"/>
+  <element tag="(0040,A801)" name="Tabulated Values Sequence" vr="SQ" vm="1" key="TabulatedValuesSeq"/>
+  <element tag="(0040,A802)" name="Number of Table Rows" vr="UL" vm="1" key="NumberOfTableRows"/>
+  <element tag="(0040,A803)" name="Number of Table Columns" vr="UL" vm="1" key="NumbeOfTableColumns"/>
+  <element tag="(0040,A804)" name="Table Row Number" vr="UL" vm="1" key="TableRowNumber"/>
+  <element tag="(0040,A805)" name="Table Column Number" vr="UL" vm="1" key="TableColumnNumber"/>
+  <element tag="(0040,A806)" name="Table Row Definition Sequence" vr="SQ" vm="1" key="TableRowDefinitionSeq"/>
+  <element tag="(0040,A807)" name="Table Column Definition Sequence" vr="SQ" vm="1" key="TableColumnDefinitionSeq"/>
+  <element tag="(0040,A808)" name="Cell Values Sequence" vr="SQ" vm="1" key="CellValuesSeq"/>
   <element tag="(0040,A992)" name="Uniform Resource Locator (Trial) (Retired)" vr="ST" vm="1" key="UniformResourceLocatorTrial" retired="true"/>
   <element tag="(0040,B020)" name="Waveform Annotation Sequence" vr="SQ" vm="1" key="AnnotationSeq"/>
   <element tag="(0040,DB00)" name="Template Identifier" vr="CS" vm="1" key="TemplateIdentifier"/>
@@ -3373,6 +3376,9 @@
   <element tag="(0072,007E)" name="Selector SS Value" vr="SS" vm="1-n" key="SelectorSSValue"/>
   <element tag="(0072,007F)" name="Selector UI Value" vr="UI" vm="1-n" key="SelectorUIValue"/>
   <element tag="(0072,0080)" name="Selector Code Sequence Value" vr="SQ" vm="1" key="SelectorCodeSequenceValue"/>
+  <element tag="(0072,0081)" name="Selector OV Value" vr="OV" vm="1" key="SelectorOVValue"/>
+  <element tag="(0072,0082)" name="Selector SV Value" vr="SV" vm="1-n" key="SelectorSVValue"/>
+  <element tag="(0072,0083)" name="Selector UV Value" vr="UV" vm="1-n" key="SelectorUVValue"/>
   <element tag="(0072,0100)" name="Number of Screens" vr="US" vm="1" key="NumberOfScreens"/>
   <element tag="(0072,0102)" name="Nominal Screen Definition Sequence" vr="SQ" vm="1" key="NominalScreenDefinitionSeq"/>
   <element tag="(0072,0104)" name="Number of Vertical Pixels" vr="US" vm="1" key="NumberOfVerticalPixels"/>
@@ -3829,6 +3835,7 @@
   <element tag="(3006,0046)" name="Number of Contour Points" vr="IS" vm="1" key="NumberOfContourPoints"/>
   <element tag="(3006,0048)" name="Contour Number" vr="IS" vm="1" key="ContourNumber"/>
   <element tag="(3006,0049)" name="Attached Contours" vr="IS" vm="1-n" key="AttachedContours"/>
+  <element tag="(3006,004A)" name="Source Pixel Planes Characteristics Sequence" vr="SQ" vm="1" key="SourcePixelPlanesCharacteristicsSeq"/>
   <element tag="(3006,0050)" name="Contour Data" vr="DS" vm="3-3n" key="ContourData"/>
   <element tag="(3006,0080)" name="RT ROI Observations Sequence" vr="SQ" vm="1" key="RTROIObservationsSeq"/>
   <element tag="(3006,0082)" name="Observation Number" vr="IS" vm="1" key="ObservationNumber"/>
@@ -4305,6 +4312,7 @@
   <element tag="(300A,0395)" name="Scan Spot Reordering Allowed" vr="CS" vm="1" key="ScanSpotReorderingAllowed"/>
   <element tag="(300A,0396)" name="Scan Spot Meterset Weights" vr="FL" vm="1-n" key="ScanSpotMetersetWeights"/>
   <element tag="(300A,0398)" name="Scanning Spot Size" vr="FL" vm="2" key="ScanningSpotSize"/>
+  <element tag="(300A,0399)" name="Scan Spot Sizes Delivered" vr="FL" vm="2" key="ScanSpotSizesDelivered"/>
   <element tag="(300A,039A)" name="Number of Paintings" vr="IS" vm="1" key="NumberOfPaintings"/>
   <element tag="(300A,03A0)" name="Ion Tolerance Table Sequence" vr="SQ" vm="1" key="IonToleranceTableSeq"/>
   <element tag="(300A,03A2)" name="Ion Beam Sequence" vr="SQ" vm="1" key="IonBeamSeq"/>
@@ -4488,6 +4496,48 @@
   <element tag="(300A,0688)" name="RT Beam Modifier Definition Distance" vr="FD" vm="1" key="RTBeamModifierDefinitionDistance"/>
   <element tag="(300A,0689)" name="Beam Area Limit Sequence" vr="SQ" vm="1" key="BeamAreaLimitSeq"/>
   <element tag="(300A,068A)" name="Referenced RT Prescription Sequence" vr="SQ" vm="1" key="RefRTPrescriptionSeq"/>
+  <element tag="(300A,0700)" name="Treatment Session UID" vr="UI" vm="1" key="TreatmentSessionUID"/>
+  <element tag="(300A,0701)" name="RT Radiation Usage" vr="CS" vm="1" key="RTRadiationUsage"/>
+  <element tag="(300A,0702)" name="Referenced RT Radiation Set Sequence" vr="SQ" vm="1" key="ReferencedRTRadiationSetSeq"/>
+  <element tag="(300A,0703)" name="Referenced RT Radiation Record Sequence" vr="SQ" vm="1" key="ReferencedRTRadiationRecordSeq"/>
+  <element tag="(300A,0704)" name="RT Radiation Set Delivery Number" vr="US" vm="1" key="RTRadiationSetDeliveryNumber"/>
+  <element tag="(300A,0705)" name="Clinical Fraction Number" vr="US" vm="1" key="ClinicalFractionNumber"/>
+  <element tag="(300A,0706)" name="RT Treatment Fraction Completion Status" vr="CS" vm="1" key="RTTreatmentFractionCompletionStatus"/>
+  <element tag="(300A,0707)" name="RT Radiation Set Usage" vr="CS" vm="1" key="RTRadiationSetUsage"/>
+  <element tag="(300A,0708)" name="Treatment Delivery Continuation Flag" vr="CS" vm="1" key="TreatmentDeliveryContinuationFlag"/>
+  <element tag="(300A,0709)" name="Treatment Record Content Origin" vr="CS" vm="1" key="TreatmentRecordContentOrigin"/>
+  <element tag="(300A,0714)" name="RT Treatment Termination Status" vr="CS" vm="1" key="RTTreatmentTerminationStatus"/>
+  <element tag="(300A,0715)" name="RT Treatment Termination Reason Code Sequence" vr="SQ" vm="1" key="RTTreatmentTerminationReasonCodeSeq"/>
+  <element tag="(300A,0716)" name="Machine-Specific Treatment Termination Code Sequence" vr="SQ" vm="1" key="MachineSpecificTreatmentTerminationCodeSeq"/>
+  <element tag="(300A,0722)" name="RT Radiation Salvage Record Control Point Sequence" vr="SQ" vm="1" key="RTRadiationSalvageRecordControlPointSeq"/>
+  <element tag="(300A,0723)" name="Starting Meterset Value Known Flag" vr="CS" vm="1" key="StartingMetersetValueKnownFlag"/>
+  <element tag="(300A,0730)" name="Treatment Termination Description" vr="ST" vm="1" key="TreatmentTerminationDescription"/>
+  <element tag="(300A,0731)" name="Treatment Tolerance Violation Sequence" vr="SQ" vm="1" key="TreatmentToleranceViolationSeq"/>
+  <element tag="(300A,0732)" name="Treatment Tolerance Violation Category" vr="CS" vm="1" key="TreatmentToleranceViolationCategory"/>
+  <element tag="(300A,0733)" name="Treatment Tolerance Violation Attribute Sequence" vr="SQ" vm="1" key="TreatmentToleranceViolationAttributeSeq"/>
+  <element tag="(300A,0734)" name="Treatment Tolerance Violation Description" vr="ST" vm="1" key="TreatmentToleranceViolationDescription"/>
+  <element tag="(300A,0735)" name="Treatment Tolerance Violation Identification" vr="ST" vm="1" key="TreatmentToleranceViolationIdentification"/>
+  <element tag="(300A,0736)" name="Treatment Tolerance Violation DateTime" vr="DT" vm="1" key="TreatmentToleranceViolationDateTime"/>
+  <element tag="(300A,073A)" name="Recorded RT Control Point DateTime" vr="DT" vm="1" key="RecordedRTControlPointDateTime"/>
+  <element tag="(300A,073B)" name="Referenced Radiation RT Control Point Index" vr="US" vm="1" key="ReferencedRadiationRTControlPointIndex"/>
+  <element tag="(300A,073E)" name="Alternate Value Sequence" vr="SQ" vm="1" key="AlternateValueSeq"/>
+  <element tag="(300A,073F)" name="Confirmation Sequence" vr="SQ" vm="1" key="ConfirmationSeq"/>
+  <element tag="(300A,0740)" name="Interlock Sequence" vr="SQ" vm="1" key="InterlockSeq"/>
+  <element tag="(300A,0741)" name="Interlock DateTime" vr="DT" vm="1" key="InterlockDateTime"/>
+  <element tag="(300A,0742)" name="Interlock Description" vr="ST" vm="1" key="InterlockDescription"/>
+  <element tag="(300A,0743)" name="Interlock Originating Device Sequence" vr="SQ" vm="1" key="InterlockOriginatingDeviceSeq"/>
+  <element tag="(300A,0744)" name="Interlock Code Sequence" vr="SQ" vm="1" key="InterlockCodeSeq"/>
+  <element tag="(300A,0745)" name="Interlock Resolution Code Sequence" vr="SQ" vm="1" key="InterlockResolutionCodeSeq"/>
+  <element tag="(300A,0746)" name="Interlock Resolution User Sequence" vr="SQ" vm="1" key="InterlockResolutionUserSeq"/>
+  <element tag="(300A,0760)" name="Override DateTime" vr="DT" vm="1" key="OverrideDateTime"/>
+  <element tag="(300A,0761)" name="Treatment Tolerance Violation Type Code Sequence" vr="SQ" vm="1" key="TreatmentToleranceViolationTypeCodeSeq"/>
+  <element tag="(300A,0762)" name="Treatment Tolerance Violation Cause Code Sequence" vr="SQ" vm="1" key="TreatmentToleranceViolationCauseCodeSeq"/>
+  <element tag="(300A,0772)" name="Measured Meterset to Dose Mapping Sequence" vr="SQ" vm="1" key="MeasuredMetersetToDoseMappingSeq"/>
+  <element tag="(300A,0773)" name="Referenced Expected In-Vivo Measurement Value Index" vr="US" vm="1" key="ReferencedExpectedInVivoMeasurementValueIndex"/>
+  <element tag="(300A,0774)" name="Dose Measurement Device Code Sequence" vr="SQ" vm="1" key="DoseMeasurementDeviceCodeSeq"/>
+  <element tag="(300A,0780)" name="Additional Parameter Recording Instance Sequence" vr="SQ" vm="1" key="AdditionalParameterRecordingInstanceSeq"/>
+  <element tag="(300A,0782)" name="Unused2" vr="US" vm="1" key="Unused2"/>
+  <element tag="(300A,0783)" name="Interlock Origin Description" vr="ST" vm="1" key="InterlockOriginDescription"/>
   <element tag="(300C,0002)" name="Referenced RT Plan Sequence" vr="SQ" vm="1" key="RefRTPlanSeq"/>
   <element tag="(300C,0004)" name="Referenced Beam Sequence" vr="SQ" vm="1" key="RefBeamSeq"/>
   <element tag="(300C,0006)" name="Referenced Beam Number" vr="IS" vm="1" key="RefBeamNumber"/>
@@ -4875,159 +4925,34 @@
   <element tag="(7FE0,0020)" name="Coefficients SDVN (Retired)" vr="OW" vm="1" key="CoefficientsSDVN" retired="true"/>
   <element tag="(7FE0,0030)" name="Coefficients SDHN (Retired)" vr="OW" vm="1" key="CoefficientsSDHN" retired="true"/>
   <element tag="(7FE0,0040)" name="Coefficients SDDN (Retired)" vr="OW" vm="1" key="CoefficientsSDDN" retired="true"/>
+  <element tag="(7Fxx,0010)" name="Variable Pixel Data" vr="OX" vm="1" key="VariablePixelData"/>
+  <element tag="(7Fxx,0011)" name="Variable Next Data Group" vr="US" vm="1" key="VariableNextDataGroup"/>
+  <element tag="(7Fxx,0020)" name="Variable Coefficients SDVN" vr="OW" vm="1" key="VariableCoefficientsSDVN"/>
+  <element tag="(7Fxx,0030)" name="Variable Coefficients SDHN" vr="OW" vm="1" key="VariableCoefficientsSDHN"/>
+  <element tag="(7Fxx,0040)" name="Variable Coefficients SDDN" vr="OW" vm="1" key="VariableCoefficientsSDDN"/>
   <element tag="(FFFA,FFFA)" name="Digital Signatures Sequence" vr="SQ" vm="1" key="DigitalSignaturesSeq"/>
   <element tag="(FFFC,FFFC)" name="Data Set Trailing Padding" vr="OB" vm="1" key="DataSetTrailingPadding"/>
   <element tag="(FFFE,E000)" name="Item" vr="NONE" vm="1" key="Item"/>
   <element tag="(FFFE,E00D)" name="Item Delimitation Item" vr="NONE" vm="1" key="ItemDelimitationItem"/>
   <element tag="(FFFE,E0DD)" name="Sequence Delimitation Item" vr="NONE" vm="1" key="SeqDelimitationItem"/>
-  
-  <!--
-  <element tag="(0009,0010)" name="siemens00090010" vr="LO" vm="1" key="siemens00090010"/>
-  <element tag="(0009,1050)" name="siemens00091050" vr="UN" vm="1" key="siemens00091050"/>
-  <element tag="(0029,0010)" name="siemens00290010" vr="LO" vm="1" key="siemens00290010"/>
-  <element tag="(0029,0011)" name="siemens00290011" vr="LO" vm="1" key="siemens00290011"/>
-  <element tag="(0029,1000)" name="siemens00291000" vr="UN" vm="1" key="siemens00291000"/>
-  <element tag="(0029,1001)" name="siemens00291001" vr="UN" vm="1" key="siemens00291001"/>
-  <element tag="(0029,1003)" name="siemens00291003" vr="SQ" vm="1" key="siemens00291003"/>
-  <element tag="(0029,1004)" name="siemens00291004" vr="SQ" vm="1" key="siemens00291004"/>
-  <element tag="(0029,1005)" name="siemens00291005" vr="UN" vm="1" key="siemens00291005"/>
-  <element tag="(0029,1008)" name="siemens00291008" vr="UN" vm="1" key="siemens00291008"/>
-  <element tag="(0029,1010)" name="siemens00291010" vr="OB" vm="1" key="siemens00291010"/>
-  <element tag="(0029,1011)" name="siemens00291011" vr="UN" vm="1" key="siemens00291011"/>
-  <element tag="(0029,1012)" name="siemens00291012" vr="SQ" vm="1" key="siemens00291012"/>
-  <element tag="(0029,1013)" name="siemens00291013" vr="UN" vm="1" key="siemens00291013"/>
-  <element tag="(0029,1014)" name="siemens00291014" vr="UN" vm="1" key="siemens00291014"/>
-  <element tag="(0029,1015)" name="siemens00291015" vr="UN" vm="1" key="siemens00291015"/>
-  <element tag="(0029,1016)" name="siemens00291016" vr="UN" vm="1" key="siemens00291016"/>
-  <element tag="(0029,1017)" name="siemens00291017" vr="UN" vm="1" key="siemens00291017"/>
-  <element tag="(0029,1018)" name="siemens00291018" vr="UN" vm="1" key="siemens00291018"/>
-  <element tag="(0029,1019)" name="siemens00291019" vr="UN" vm="1" key="siemens00291019"/>
-  <element tag="(0029,1020)" name="siemens00291020" vr="UN" vm="1" key="siemens00291020"/>
-  <element tag="(0029,1021)" name="siemens00291021" vr="UN" vm="1" key="siemens00291021"/>
-  <element tag="(0029,103F)" name="siemens0029103F" vr="SQ" vm="1" key="siemens0029103F"/>
-  <element tag="(0029,1040)" name="siemens00291040" vr="SQ" vm="1" key="siemens00291040"/>
-  <element tag="(0029,1041)" name="siemens00291041" vr="UN" vm="1" key="siemens00291041"/>
-  <element tag="(0029,1042)" name="siemens00291042" vr="UN" vm="1" key="siemens00291042"/>
-  <element tag="(0029,1043)" name="siemens00291043" vr="UN" vm="1" key="siemens00291043"/>
-  <element tag="(0029,1044)" name="siemens00291044" vr="UN" vm="1" key="siemens00291044"/>
-  <element tag="(0029,1045)" name="siemens00291045" vr="UN" vm="1" key="siemens00291045"/>
-  <element tag="(0029,1046)" name="siemens00291046" vr="UN" vm="1" key="siemens00291046"/>
-  <element tag="(0029,1047)" name="siemens00291047" vr="UN" vm="1" key="siemens00291047"/>
-  <element tag="(0029,1048)" name="siemens00291048" vr="UN" vm="1" key="siemens00291048"/>
-  <element tag="(0029,1049)" name="siemens00291049" vr="UN" vm="1" key="siemens00291049"/>
-  <element tag="(0029,104A)" name="siemens0029104A" vr="UN" vm="1" key="siemens0029104A"/>
-  <element tag="(0029,104B)" name="siemens0029104B" vr="UN" vm="1" key="siemens0029104B"/>
-  <element tag="(0029,104C)" name="siemens0029104C" vr="UN" vm="1" key="siemens0029104C"/>
-  <element tag="(0029,104D)" name="siemens0029104D" vr="UN" vm="1" key="siemens0029104D"/>
-  <element tag="(0029,1050)" name="siemens00291050" vr="UN" vm="1" key="siemens00291050"/>
-  <element tag="(0029,1051)" name="siemens00291051" vr="UN" vm="1" key="siemens00291051"/>
-  <element tag="(0029,1052)" name="siemens00291052" vr="UN" vm="1" key="siemens00291052"/>
-  <element tag="(0029,1053)" name="siemens00291053" vr="UN" vm="1" key="siemens00291053"/>
-  <element tag="(0029,1054)" name="siemens00291054" vr="UN" vm="1" key="siemens00291054"/>
-  <element tag="(0029,1055)" name="siemens00291055" vr="UN" vm="1" key="siemens00291055"/>
-  <element tag="(0029,1056)" name="siemens00291056" vr="UN" vm="1" key="siemens00291056"/>
-  <element tag="(0029,1057)" name="siemens00291057" vr="SQ" vm="1" key="siemens00291057"/>
-  <element tag="(0029,1058)" name="siemens00291058" vr="UN" vm="1" key="siemens00291058"/>
-  <element tag="(0029,1059)" name="siemens00291059" vr="UN" vm="1" key="siemens00291059"/>
-  <element tag="(0029,105A)" name="siemens0029105A" vr="UN" vm="1" key="siemens0029105A"/>
-  <element tag="(0029,105B)" name="siemens0029105B" vr="UN" vm="1" key="siemens0029105B"/>
-  <element tag="(0029,105C)" name="siemens0029105C" vr="UN" vm="1" key="siemens0029105C"/>
-  <element tag="(0029,105D)" name="siemens0029105D" vr="SQ" vm="1" key="siemens0029105D"/>
-  <element tag="(0029,105E)" name="siemens0029105E" vr="SQ" vm="1" key="siemens0029105E"/>
-  <element tag="(0029,105F)" name="siemens0029105F" vr="UN" vm="1" key="siemens0029105F"/>
-  <element tag="(0029,1060)" name="siemens00291060" vr="UN" vm="1" key="siemens00291060"/>
-  <element tag="(0029,1061)" name="siemens00291061" vr="SQ" vm="1" key="siemens00291061"/>
-  <element tag="(0029,1062)" name="siemens00291062" vr="UN" vm="1" key="siemens00291062"/>
-  <element tag="(0029,1063)" name="siemens00291063" vr="SQ" vm="1" key="siemens00291063"/>
-  <element tag="(0029,1064)" name="siemens00291064" vr="UN" vm="1" key="siemens00291064"/>
-  <element tag="(0029,1065)" name="siemens00291065" vr="UN" vm="1" key="siemens00291065"/>
-  <element tag="(0029,1066)" name="siemens00291066" vr="UN" vm="1" key="siemens00291066"/>
-  <element tag="(0029,1067)" name="siemens00291067" vr="UN" vm="1" key="siemens00291067"/>
-  <element tag="(0029,1076)" name="siemens00291076" vr="UN" vm="1" key="siemens00291076"/>
-  <element tag="(0029,1077)" name="siemens00291077" vr="UN" vm="1" key="siemens00291077"/>
-  <element tag="(0029,1078)" name="siemens00291078" vr="UN" vm="1" key="siemens00291078"/>
-  <element tag="(0029,107C)" name="siemens0029107C" vr="UN" vm="1" key="siemens0029107C"/>
-  <element tag="(0029,107E)" name="siemens0029107E" vr="UN" vm="1" key="siemens0029107E"/>
-  <element tag="(0029,1080)" name="siemens00291080" vr="UN" vm="1" key="siemens00291080"/>
-  <element tag="(0029,1084)" name="siemens00291084" vr="UN" vm="1" key="siemens00291084"/>
-  <element tag="(0029,1085)" name="siemens00291085" vr="UN" vm="1" key="siemens00291085"/>
-  <element tag="(0029,1086)" name="siemens00291086" vr="UN" vm="1" key="siemens00291086"/>
-  <element tag="(0029,1087)" name="siemens00291087" vr="UN" vm="1" key="siemens00291087"/>
-  <element tag="(0029,1088)" name="siemens00291088" vr="UN" vm="1" key="siemens00291088"/>
-  <element tag="(0029,108A)" name="siemens0029108A" vr="UN" vm="1" key="siemens0029108A"/>
-  <element tag="(0029,10A0)" name="siemens002910A0" vr="UN" vm="1" key="siemens002910A0"/>
-  <element tag="(0029,10A3)" name="siemens002910A3" vr="UN" vm="1" key="siemens002910A3"/>
-  <element tag="(0029,10A4)" name="siemens002910A4" vr="UN" vm="1" key="siemens002910A4"/>
-  <element tag="(0029,10A6)" name="siemens002910A6" vr="UN" vm="1" key="siemens002910A6"/>
-  <element tag="(0029,10A7)" name="siemens002910A7" vr="SQ" vm="1" key="siemens002910A7"/>
-  <element tag="(0029,10A8)" name="siemens002910A8" vr="UN" vm="1" key="siemens002910A8"/>
-  <element tag="(0029,10A9)" name="siemens002910A9" vr="SQ" vm="1" key="siemens002910A9"/>
-  <element tag="(0029,10AA)" name="siemens002910AA" vr="UN" vm="1" key="siemens002910AA"/>
-  <element tag="(0029,10AB)" name="siemens002910AB" vr="UN" vm="1" key="siemens002910AB"/>
-  <element tag="(0029,10AC)" name="siemens002910AC" vr="UN" vm="1" key="siemens002910AC"/>
-  <element tag="(0029,10AD)" name="siemens002910AD" vr="UN" vm="1" key="siemens002910AD"/>
-  <element tag="(0029,10CF)" name="siemens002910CF" vr="SQ" vm="1" key="siemens002910CF"/>
-  <element tag="(0029,10E4)" name="siemens002910E4" vr="SQ" vm="1" key="siemens002910E4"/>
-  <element tag="(0029,10E6)" name="siemens002910E6" vr="UN" vm="1" key="siemens002910E6"/>
-  <element tag="(0029,10EE)" name="siemens002910EE" vr="SQ" vm="1" key="siemens002910EE"/>
-  <element tag="(0029,1102)" name="siemens00291102" vr="SQ" vm="1" key="siemens00291102"/>
-  <element tag="(0029,1140)" name="siemens00291140" vr="SQ" vm="1" key="siemens00291140"/>
-  <element tag="(0029,1152)" name="siemens00291152" vr="UN" vm="1" key="siemens00291152"/>
-  <element tag="(0071,1010)" name="mobius00711010" vr="SQ" vm="1" key="mobius00711010"/>
-  <element tag="(2001,0010)" name="philips20010010" vr="LO" vm="1" key="philips20010010"/>
-  <element tag="(2001,102D)" name="philips2001102D" vr="SS" vm="1" key="philips2001102D"/>
-  <element tag="(2001,1032)" name="philips20011032" vr="FL" vm="1" key="philips20011032"/>
-  <element tag="(2001,1033)" name="philips20011033" vr="CS" vm="1" key="philips20011033"/>
-  <element tag="(2001,1035)" name="philips20011035" vr="SS" vm="1" key="philips20011035"/>
-  <element tag="(2001,1036)" name="philips20011036" vr="CS" vm="1" key="philips20011036"/>
-  <element tag="(2001,105F)" name="philips2001105F" vr="SQ" vm="1" key="philips2001105F"/>
-  <element tag="(2005,0010)" name="philips20050010" vr="LO" vm="1" key="philips20050010"/>
-  <element tag="(2005,0014)" name="philips20050014" vr="LO" vm="1" key="philips20050014"/>
-  <element tag="(2005,0015)" name="philips20050015" vr="LO" vm="1" key="philips20050015"/>
-  <element tag="(2005,1048)" name="philips20051048" vr="UN" vm="1" key="philips20051048"/>
-  <element tag="(2005,1049)" name="philips20051049" vr="UN" vm="1" key="philips20051049"/>
-  <element tag="(2005,104A)" name="philips2005104A" vr="UN" vm="1" key="philips2005104A"/>
-  <element tag="(2005,104B)" name="philips2005104B" vr="UN" vm="1" key="philips2005104B"/>
-  <element tag="(2005,104C)" name="philips2005104C" vr="UN" vm="1" key="philips2005104C"/>
-  <element tag="(2005,104D)" name="philips2005104D" vr="UN" vm="1" key="philips2005104D"/>
-  <element tag="(2005,1064)" name="philips20051064" vr="UN" vm="1" key="philips20051064"/>
-  <element tag="(2005,1065)" name="philips20051065" vr="UN" vm="1" key="philips20051065"/>
-  <element tag="(2005,1066)" name="philips20051066" vr="UN" vm="1" key="philips20051066"/>
-  <element tag="(2005,1067)" name="philips20051067" vr="UN" vm="1" key="philips20051067"/>
-  <element tag="(2005,1068)" name="philips20051068" vr="UN" vm="1" key="philips20051068"/>
-  <element tag="(2005,1071)" name="philips20051071" vr="FL" vm="1" key="philips20051071"/>
-  <element tag="(2005,1072)" name="philips20051072" vr="FL" vm="1" key="philips20051072"/>
-  <element tag="(2005,1073)" name="philips20051073" vr="FL" vm="1" key="philips20051073"/>
-  <element tag="(2005,1074)" name="philips20051074" vr="FL" vm="1" key="philips20051074"/>
-  <element tag="(2005,1075)" name="philips20051075" vr="FL" vm="1" key="philips20051075"/>
-  <element tag="(2005,1076)" name="philips20051076" vr="FL" vm="1" key="philips20051076"/>
-  <element tag="(2005,1078)" name="philips20051078" vr="FL" vm="1" key="philips20051078"/>
-  <element tag="(2005,1079)" name="philips20051079" vr="FL" vm="1" key="philips20051079"/>
-  <element tag="(2005,107A)" name="philips2005107A" vr="FL" vm="1" key="philips2005107A"/>
-  <element tag="(2005,107B)" name="philips2005107B" vr="CS" vm="1" key="philips2005107B"/>
-  <element tag="(2005,107E)" name="philips2005107E" vr="FL" vm="1" key="philips2005107E"/>
-  <element tag="(2005,1081)" name="philips20051081" vr="CS" vm="1" key="philips20051081"/>
-  <element tag="(2005,1084)" name="philips20051084" vr="SQ" vm="1" key="philips20051084"/>
-  <element tag="(2005,1402)" name="philips20051402" vr="SQ" vm="1" key="philips20051402"/>
-  <element tag="(2005,140F)" name="philips2005140F" vr="SQ" vm="1" key="philips2005140F"/>
-  <element tag="(2005,1436)" name="philips20051436" vr="UN" vm="1" key="philips20051436"/>
-  <element tag="(2005,143C)" name="philips2005143C" vr="FL" vm="1" key="philips2005143C"/>
-  <element tag="(2005,143D)" name="philips2005143D" vr="FL" vm="1" key="philips2005143D"/>
-  <element tag="(2005,143E)" name="philips2005143E" vr="FL" vm="1" key="philips2005143E"/>
-  <element tag="(2005,1567)" name="philips20051567" vr="IS" vm="1" key="philips20051567"/>
-  <element tag="(200B,0070)" name="philips200B0070" vr="LO" vm="1" key="philips200B0070"/>
-  <element tag="(200B,709F)" name="philips200B709F" vr="SQ" vm="1" key="philips200B709F"/>
-  <element tag="(200B,70AA)" name="philips200B70AA" vr="SQ" vm="1" key="philips200B70AA"/>
-  <element tag="(200B,70AB)" name="philips200B70AB" vr="LO" vm="1" key="philips200B70AB"/>
-  <element tag="(200B,70AC)" name="philips200B70AC" vr="SL" vm="1" key="philips200B70AC"/>
-  -->
-</elements>
+  <element tag="(xxxx,0000)" name="Group Length" vr="UL" vm="1" key="GroupLength"/>
+ </elements>
 
-<uids type="TransferSyntax">
+ <uids type="TransferSyntax">
+  <uid value="1.2.40.0.13.1.1.2.4.94" name="Dcm4che URI Referenced" key="Dcm4cheURIReferenced"/>
   <uid value="1.2.840.10008.1.2" name="Implicit VR Little Endian Default Transfer Syntax for DICOM" key="ImplicitVRLittleEndian"/>
   <uid value="1.2.840.10008.1.2.1" name="Explicit VR Little Endian" key="ExplicitVRLittleEndian"/>
   <uid value="1.2.840.10008.1.2.1.99" name="Deflated Explicit VR Little Endian" key="DeflatedExplicitVRLittleEndian"/>
   <uid value="1.2.840.10008.1.2.2" name="Explicit VR Big Endian (Retired)" key="ExplicitVRBigEndian" retired="true"/>
+  <uid value="1.2.840.10008.1.2.4.100" name="MPEG2 Main Profile Main Level" key="MPEG2"/>
+  <uid value="1.2.840.10008.1.2.4.101" name="MPEG2 Main Profile High Level" key="MPEG2HL"/>
+  <uid value="1.2.840.10008.1.2.4.102" name="MPEG4 AVCH.264 High Profile Level 4.1" key="MPEG4"/>
+  <uid value="1.2.840.10008.1.2.4.103" name="MPEG4 AVCH.264 BDcompatible High Profile Level 4.1" key="MPEG4BD"/>
+  <uid value="1.2.840.10008.1.2.4.104" name="MPEG4 AVCH.264 High Profile Level 4.2 For 2D Video" key="MPEG4AVCH264HighProfileLevel42For2DVideo"/>
+  <uid value="1.2.840.10008.1.2.4.105" name="MPEG4 AVCH.264 High Profile Level 4.2 For 3D Video" key="MPEG4AVCH264HighProfileLevel42For3DVideo"/>
+  <uid value="1.2.840.10008.1.2.4.106" name="MPEG4 AVCH.264 Stereo High Profile Level 4.2" key="MPEG4AVCH264StereoHighProfileLevel42"/>
+  <uid value="1.2.840.10008.1.2.4.107" name="HEVCH.265 Main Profile Level 5.1" key="HEVCH265MainProfileLevel51"/>
+  <uid value="1.2.840.10008.1.2.4.108" name="HEVCH.265 Main 10 Profile Level 5.1" key="HEVCH265Main10ProfileLevel51"/>
   <uid value="1.2.840.10008.1.2.4.50" name="JPEG Baseline (Process 1) Default Transfer Syntax for Lossy JPEG 8 Bit Image Compression" key="JPEGBaseline"/>
   <uid value="1.2.840.10008.1.2.4.51" name="JPEG Extended (Process 2 &amp; 4) Default Transfer Syntax for Lossy JPEG 12 Bit Image Compression (Process 4 only)" key="JPEGExtended"/>
   <uid value="1.2.840.10008.1.2.4.52" name="JPEG Extended (Process 3 &amp; 5) (Retired)" key="JPEGExtended35Retired" retired="true"/>
@@ -5054,17 +4979,8 @@
   <uid value="1.2.840.10008.1.2.4.93" name="JPEG 2000 Part 2 Multicomponent Image Compression" key="JPEG2000MultiLossy"/>
   <uid value="1.2.840.10008.1.2.4.94" name="JPIP Referenced" key="JPIPReferenced"/>
   <uid value="1.2.840.10008.1.2.4.95" name="JPIP Referenced Deflate" key="JPIPReferencedDeflate"/>
-  <uid value="1.2.840.10008.1.2.4.96" name="No Pixel Data" key="NoPixelData" />
-  <uid value="1.2.840.10008.1.2.4.97" name="No Pixel Data Deflate" key="NoPixelDataDeflate" />
-  <uid value="1.2.840.10008.1.2.4.100" name="MPEG2 Main Profile Main Level" key="MPEG2"/>
-  <uid value="1.2.840.10008.1.2.4.101" name="MPEG2 Main Profile High Level" key="MPEG2HL"/>
-  <uid value="1.2.840.10008.1.2.4.102" name="MPEG4 AVCH.264 High Profile Level 4.1" key="MPEG4"/>
-  <uid value="1.2.840.10008.1.2.4.103" name="MPEG4 AVCH.264 BDcompatible High Profile Level 4.1" key="MPEG4BD"/>
-  <uid value="1.2.840.10008.1.2.4.104" name="MPEG4 AVCH.264 High Profile Level 4.2 For 2D Video" key="MPEG4AVCH264HighProfileLevel42For2DVideo"/>
-  <uid value="1.2.840.10008.1.2.4.105" name="MPEG4 AVCH.264 High Profile Level 4.2 For 3D Video" key="MPEG4AVCH264HighProfileLevel42For3DVideo"/>
-  <uid value="1.2.840.10008.1.2.4.106" name="MPEG4 AVCH.264 Stereo High Profile Level 4.2" key="MPEG4AVCH264StereoHighProfileLevel42"/>
-  <uid value="1.2.840.10008.1.2.4.107" name="HEVCH.265 Main Profile Level 5.1" key="HEVCH265MainProfileLevel51"/>
-  <uid value="1.2.840.10008.1.2.4.108" name="HEVCH.265 Main 10 Profile Level 5.1" key="HEVCH265Main10ProfileLevel51"/>
+  <uid value="1.2.840.10008.1.2.4.96" name="No Pixel Data" key="NoPixelData"/>
+  <uid value="1.2.840.10008.1.2.4.97" name="No Pixel Data Deflate" key="NoPixelDataDeflate"/>
   <uid value="1.2.840.10008.1.2.5" name="RLE Lossless" key="RLELossless"/>
   <uid value="1.2.840.10008.1.2.6.1" name="RFC 2557 MIME encapsulation (Retired)" key="RFC2557MIMEEncapsulation" retired="true"/>
   <uid value="1.2.840.10008.1.2.6.2" name="XML Encoding (Retired)" key="XMLEncoding" retired="true"/>
@@ -5072,23 +4988,39 @@
   <uid value="1.2.840.10008.1.2.7.2" name="SMPTE ST 211020 Uncompressed Interlaced Active Video" key="SMPTEST211020UncompressedInterlacedActiveVideo"/>
   <uid value="1.2.840.10008.1.2.7.3" name="SMPTE ST 211030 PCM Digital Audio" key="SMPTEST211030PCMDigitalAudio"/>
   <uid value="1.2.840.10008.1.20" name="Papyrus 3 Implicit VR Little Endian (Retired)" key="Papyrus3ImplicitVRLittleEndianRetired" retired="true"/>
-  <uid value="1.2.40.0.13.1.1.2.4.94" name="Dcm4che URI Referenced" key="Dcm4cheURIReferenced"/>
-</uids>
+  <uid value="1.3.6.1.4.1.5962.300.1" name="PixelMedBzip2ExplicitVRLittleEndian" key="PixelMedBzip2ExplicitVRLittleEndian"/>
+  <uid value="1.3.6.1.4.1.5962.300.2" name="PixelMedEncapsulatedRawLittleEndian" key="PixelMedEncapsulatedRawLittleEndian"/>
+ </uids>
 
-<uids type="ServiceClass">
+ <uids type="ServiceClass">
   <uid value="1.2.840.10008.4.2" name="Storage Service Class" key="StorageServiceClass"/>
   <uid value="1.2.840.10008.5.1.4.34.4" name="Unified Worklist and Procedure Step Service Class Trial (Retired)" key="UnifiedWorklistandProcedureStepServiceClassRetired" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.34.6" name="Unified Worklist and Procedure Step Service Class" key="UnifiedWorklistandProcedureStepServiceClass"/>
-</uids>
+ </uids>
 
-<uids type="SOPClass">
+ <uids type="SOPClass">
+  <uid value="1.2.124.113532.3500.7" name="PrivateAgfaBasicAttributePresentationStateStorage" key="PrivateAgfaBasicAttributePresentationStateStorage"/>
+  <uid value="1.2.276.0.48.5.1.4.1.1.7" name="PrivateTomTecAnnotationStorage" key="PrivateTomTecAnnotationStorage"/>
+  <uid value="1.2.392.200036.9116.7.8.1.1.1" name="PrivateToshibaUSImageStorage" key="PrivateToshibaUSImageStorage"/>
+  <uid value="1.2.392.200036.9125.1.1.2" name="PrivateFujiCRImageStorage" key="PrivateFujiCRImageStorage"/>
+  <uid value="1.2.40.0.13.1.5.1.4.1.1.104.1" name="PrivateDcm4cheEncapsulatedDocumentStorage" key="PrivateDcm4cheEncapsulatedDocumentStorage"/>
+  <uid value="1.2.40.0.13.1.5.1.4.1.1.128.1" name="PrivateDcm4cheUpgradedPETImageStorage" key="PrivateDcm4cheUpgradedPETImageStorage"/>
+  <uid value="1.2.40.0.13.1.5.1.4.1.1.2.1" name="PrivateDcm4cheUpgradedCTImageStorage" key="PrivateDcm4cheUpgradedCTImageStorage"/>
+  <uid value="1.2.40.0.13.1.5.1.4.1.1.4.1" name="PrivateDcm4cheUpgradedMRImageStorage" key="PrivateDcm4cheUpgradedMRImageStorage"/>
+  <uid value="1.2.528.1.1001.5.1.1.1" name="PrivateGECollageStorage" key="PrivateGECollageStorage"/>
+  <uid value="1.2.826.0.1.3680043.293.1.0.1" name="PrivateERADPracticeBuilderReportTextStorage" key="PrivateERADPracticeBuilderReportTextStorage"/>
+  <uid value="1.2.826.0.1.3680043.293.1.0.2" name="PrivateERADPracticeBuilderReportDictationStorage" key="PrivateERADPracticeBuilderReportDictationStorage"/>
   <uid value="1.2.840.10008.1.1" name="Verification SOP Class" key="Verification"/>
-  <uid value="1.2.840.10008.1.3.10" name="Media Storage Directory Storage" key="MediaStorageDirectoryStorage"/>
-  <uid value="1.2.840.10008.1.9" name="Basic Study Content Notification SOP Class (Retired)" key="BasicStudyContentNotification" retired="true"/>
   <uid value="1.2.840.10008.1.20.1" name="Storage Commitment Push Model SOP Class" key="StorageCommitmentPushModel"/>
   <uid value="1.2.840.10008.1.20.2" name="Storage Commitment Pull Model SOP Class (Retired)" key="StorageCommitmentPullModel" retired="true"/>
+  <uid value="1.2.840.10008.1.3.10" name="Media Storage Directory Storage" key="MediaStorageDirectoryStorage"/>
   <uid value="1.2.840.10008.1.40" name="Procedural Event Logging SOP Class" key="ProceduralEventLoggingSOPClass"/>
   <uid value="1.2.840.10008.1.42" name="Substance Administration Logging SOP Class" key="SubstanceAdministrationLoggingSOPClass"/>
+  <uid value="1.2.840.10008.1.9" name="Basic Study Content Notification SOP Class (Retired)" key="BasicStudyContentNotification" retired="true"/>
+  <uid value="1.2.840.10008.10.1" name="Video Endoscopic Image RealTime Communication" key="VideoEndoscopicImageRealTimeCommunication"/>
+  <uid value="1.2.840.10008.10.2" name="Video Photographic Image RealTime Communication" key="VideoPhotographicImageRealTimeCommunication"/>
+  <uid value="1.2.840.10008.10.3" name="Audio Waveform RealTime Communication" key="AudioWaveformRealTimeCommunication"/>
+  <uid value="1.2.840.10008.10.4" name="Rendition Selection Document RealTime Communication" key="RenditionSelectionDocumentRealTimeCommunication"/>
   <uid value="1.2.840.10008.3.1.2.1.1" name="Detached Patient Management SOP Class (Retired)" key="DetachedPatientManagement" retired="true"/>
   <uid value="1.2.840.10008.3.1.2.2.1" name="Detached Visit Management SOP Class (Retired)" key="DetachedVisitManagement" retired="true"/>
   <uid value="1.2.840.10008.3.1.2.3.1" name="Detached Study Management SOP Class (Retired)" key="DetachedStudyManagement" retired="true"/>
@@ -5098,121 +5030,158 @@
   <uid value="1.2.840.10008.3.1.2.3.5" name="Modality Performed Procedure Step Notification SOP Class" key="ModalityPerformedProcedureStepNotification"/>
   <uid value="1.2.840.10008.3.1.2.5.1" name="Detached Results Management SOP Class (Retired)" key="DetachedResultsManagement" retired="true"/>
   <uid value="1.2.840.10008.3.1.2.6.1" name="Detached Interpretation Management SOP Class (Retired)" key="DetachedInterpretationManagement" retired="true"/>
+  <uid value="1.2.840.10008.39.2" name="ColorPaletteInformationModelFind" key="ColorPaletteInformationModelFind"/>
+  <uid value="1.2.840.10008.39.3" name="ColorPaletteInformationModelMove" key="ColorPaletteInformationModelMove"/>
+  <uid value="1.2.840.10008.39.4" name="ColorPaletteInformationModelGet" key="ColorPaletteInformationModelGet"/>
   <uid value="1.2.840.10008.5.1.1.1" name="Basic Film Session SOP Class" key="BasicFilmSession"/>
-  <uid value="1.2.840.10008.5.1.1.2" name="Basic Film Box SOP Class" key="BasicFilmBoxSOP"/>
-  <uid value="1.2.840.10008.5.1.1.4" name="Basic Grayscale Image Box SOP Class" key="BasicGrayscaleImageBox"/>
-  <uid value="1.2.840.10008.5.1.1.4.1" name="Basic Color Image Box SOP Class" key="BasicColorImageBox"/>
-  <uid value="1.2.840.10008.5.1.1.4.2" name="Referenced Image Box SOP Class (Retired)" key="RefImageBoxRetired" retired="true"/>
   <uid value="1.2.840.10008.5.1.1.14" name="Print Job SOP Class" key="PrintJob"/>
   <uid value="1.2.840.10008.5.1.1.15" name="Basic Annotation Box SOP Class" key="BasicAnnotationBox"/>
   <uid value="1.2.840.10008.5.1.1.16" name="Printer SOP Class" key="Printer"/>
   <uid value="1.2.840.10008.5.1.1.16.376" name="Printer Configuration Retrieval SOP Class" key="PrinterConfigurationRetrieval"/>
+  <uid value="1.2.840.10008.5.1.1.2" name="Basic Film Box SOP Class" key="BasicFilmBoxSOP"/>
   <uid value="1.2.840.10008.5.1.1.22" name="VOI LUT Box SOP Class" key="VOILUTBox"/>
   <uid value="1.2.840.10008.5.1.1.23" name="Presentation LUT SOP Class" key="PresentationLUT"/>
   <uid value="1.2.840.10008.5.1.1.24" name="Image Overlay Box SOP Class (Retired)" key="ImageOverlayBox" retired="true"/>
   <uid value="1.2.840.10008.5.1.1.24.1" name="Basic Print Image Overlay Box SOP Class (Retired)" key="BasicPrintImageOverlayBox" retired="true"/>
   <uid value="1.2.840.10008.5.1.1.26" name="Print Queue Management SOP Class (Retired)" key="PrintQueueManagement" retired="true"/>
-  <uid value="1.2.840.10008.5.1.1.27" name="Stored Print Storage SOP Class (Retired)" key="StoredPrintStorage" dirrecord="STORED PRINT" retired="true"/>
-  <uid value="1.2.840.10008.5.1.1.29" name="Hardcopy Grayscale Image Storage SOP Class (Retired)" key="HardcopyGrayscaleImageStorage" dirrecord="IMAGE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.1.30" name="Hardcopy Color Image Storage SOP Class (Retired)" key="HardcopyColorImageStorage " dirrecord="IMAGE" retired="true"/>
+  <uid value="1.2.840.10008.5.1.1.27" name="Stored Print Storage SOP Class (Retired)" key="StoredPrintStorage" retired="true"/>
+  <uid value="1.2.840.10008.5.1.1.29" name="Hardcopy Grayscale Image Storage SOP Class (Retired)" key="HardcopyGrayscaleImageStorage" retired="true"/>
+  <uid value="1.2.840.10008.5.1.1.30" name="Hardcopy Color Image Storage SOP Class (Retired)" key="HardcopyColorImageStorage " retired="true"/>
   <uid value="1.2.840.10008.5.1.1.31" name="Pull Print Request SOP Class (Retired)" key="PullPrintRequest" retired="true"/>
   <uid value="1.2.840.10008.5.1.1.33" name="Media Creation Management SOP Class UID" key="MediaCreationManagementSOPClass"/>
+  <uid value="1.2.840.10008.5.1.1.4" name="Basic Grayscale Image Box SOP Class" key="BasicGrayscaleImageBox"/>
+  <uid value="1.2.840.10008.5.1.1.4.1" name="Basic Color Image Box SOP Class" key="BasicColorImageBox"/>
+  <uid value="1.2.840.10008.5.1.1.4.2" name="Referenced Image Box SOP Class (Retired)" key="RefImageBoxRetired" retired="true"/>
   <uid value="1.2.840.10008.5.1.1.40" name="Display System SOP Class" key="DisplaySystemSOPClass"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1" name="Computed Radiography Image Storage" key="ComputedRadiographyImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1.1" name="Digital XRay Image Storage For Presentation" key="DigitalXRayImageStorageForPresentation" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1.1.1" name="Digital XRay Image Storage For Processing" key="DigitalXRayImageStorageForProcessing" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1.2" name="Digital Mammography XRay Image Storage For Presentation" key="DigitalMammographyXRayImageStorageForPresentation" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1.2.1" name="Digital Mammography XRay Image Storage For Processing" key="DigitalMammographyXRayImageStorageForProcessing" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1.3" name="Digital IntraOral XRay Image Storage For Presentation" key="DigitalIntraoralXRayImageStorageForPresentation" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.1.3.1" name="Digital IntraOral XRay Image Storage For Processing" key="DigitalIntraoralXRayImageStorageForProcessing" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.2" name="CT Image Storage" key="CTImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.2.1" name="Enhanced CT Image Storage" key="EnhancedCTImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.2.2" name="Legacy Converted Enhanced CT Image Storage" key="LegacyConvertedEnhancedCTImageStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.3" name="Ultrasound Multiframe Image Storage (Retired)" key="UltrasoundMultiframeImageStorageRetired" dirrecord="IMAGE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.3.1" name="Ultrasound Multiframe Image Storage" key="UltrasoundMultiframeImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.4" name="MR Image Storage" key="MRImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.4.1" name="Enhanced MR Image Storage" key="EnhancedMRImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.4.2" name="MR Spectroscopy Storage" key="MRSpectroscopyStorage" dirrecord="SPECTROSCOPY"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.4.3" name="Enhanced MR Color Image Storage" key="EnhancedMRColorImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.4.4" name="Legacy Converted Enhanced MR Image Storage" key="LegacyConvertedEnhancedMRImageStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.5" name="Nuclear Medicine Image Storage (Retired)" key="NuclearMedicineImageStorageRetired" dirrecord="IMAGE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.6" name="Ultrasound Image Storage (Retired)" key="UltrasoundImageStorageRetired" dirrecord="IMAGE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.6.1" name="Ultrasound Image Storage" key="UltrasoundImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.6.2" name="Enhanced US Volume Storage" key="EnhancedUSVolumeStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.7" name="Secondary Capture Image Storage" key="SecondaryCaptureImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.7.1" name="Multiframe Single Bit Secondary Capture Image Storage" key="MultiframeSingleBitSecondaryCaptureImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.7.2" name="Multiframe Grayscale Byte Secondary Capture Image Storage" key="MultiframeGrayscaleByteSecondaryCaptureImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.7.3" name="Multiframe Grayscale Word Secondary Capture Image Storage" key="MultiframeGrayscaleWordSecondaryCaptureImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.7.4" name="Multiframe True Color Secondary Capture Image Storage" key="MultiframeTrueColorSecondaryCaptureImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.8" name="Standalone Overlay Storage (Retired)" key="StandaloneOverlayStorage" dirrecord="OVERLAY" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9" name="Standalone Curve Storage (Retired)" key="StandaloneCurveStorage" dirrecord="CURVE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.1" name="Waveform Storage Trial (Retired)" key="WaveformStorageTrialRetired" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.1.1" name="12lead ECG Waveform Storage" key="TwelveLeadECGWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.1.2" name="General ECG Waveform Storage" key="GeneralECGWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.1.3" name="Ambulatory ECG Waveform Storage" key="AmbulatoryECGWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.2.1" name="Hemodynamic Waveform Storage" key="HemodynamicWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.3.1" name="Cardiac Electrophysiology Waveform Storage" key="CardiacElectrophysiologyWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.4.1" name="Basic Voice Audio Waveform Storage" key="BasicVoiceAudioWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.4.2" name="General Audio Waveform Storage" key="GeneralAudioWaveform" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.5.1" name="Arterial Pulse Waveform Storage" key="ArterialPulseWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.9.6.1" name="Respiratory Waveform Storage" key="RespiratoryWaveformStorage" dirrecord="WAVEFORM"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.10" name="Standalone Modality LUT Storage (Retired)" key="StandaloneModalityLUTStorage" dirrecord="MODALITY LUT" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11" name="Standalone VOI LUT Storage (Retired)" key="StandaloneVOILUTStorage" dirrecord="VOILUT" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.1" name="Grayscale Softcopy Presentation State Storage" key="GrayscaleSoftcopyPresentationStateStorage" dirrecord="PRESENTATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.2" name="Color Softcopy Presentation State Storage" key="ColorSoftcopyPresentationStateStorage" dirrecord="PRESENTATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.3" name="PseudoColor Softcopy Presentation State Storage" key="PseudoColorSoftcopyPresentationStateStorage" dirrecord="PRESENTATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.4" name="Blending Softcopy Presentation State Storage" key="BlendingSoftcopyPresentationStateStorage" dirrecord="PRESENTATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.5" name="XAXRF Grayscale Softcopy Presentation State Storage" key="XAXRFGrayscaleSoftcopyPresentationStateStorage" dirrecord="PRESENTATION"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1" name="Computed Radiography Image Storage" key="ComputedRadiographyImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1.1" name="Digital XRay Image Storage For Presentation" key="DigitalXRayImageStorageForPresentation"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1.1.1" name="Digital XRay Image Storage For Processing" key="DigitalXRayImageStorageForProcessing"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1.2" name="Digital Mammography XRay Image Storage For Presentation" key="DigitalMammographyXRayImageStorageForPresentation"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1.2.1" name="Digital Mammography XRay Image Storage For Processing" key="DigitalMammographyXRayImageStorageForProcessing"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1.3" name="Digital IntraOral XRay Image Storage For Presentation" key="DigitalIntraoralXRayImageStorageForPresentation"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.1.3.1" name="Digital IntraOral XRay Image Storage For Processing" key="DigitalIntraoralXRayImageStorageForProcessing"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.10" name="Standalone Modality LUT Storage (Retired)" key="StandaloneModalityLUTStorage" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.104.1" name="Encapsulated PDF Storage" key="EncapsulatedPDFStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.104.2" name="Encapsulated CDA Storage" key="EncapsulatedCDAStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.104.3" name="Encapsulated STL Storage" key="EncapsulatedSTLStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.104.4" name="Encapsulated OBJ Storage" key="EncapsulatedOBJStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.104.5" name="Encapsulated MTL Storage" key="EncapsulatedMTLStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11" name="Standalone VOI LUT Storage (Retired)" key="StandaloneVOILUTStorage" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.1" name="Grayscale Softcopy Presentation State Storage" key="GrayscaleSoftcopyPresentationStateStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.10" name="Segmented Volume Rendering Volumetric Presentation State Storage" key="SegmentedVolumeRenderingVolumetricPresentationStateStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.11" name="Multiple Volume Rendering Volumetric Presentation State Storage" key="MultipleVolumeRenderingVolumetricPresentationStateStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.2" name="Color Softcopy Presentation State Storage" key="ColorSoftcopyPresentationStateStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.3" name="PseudoColor Softcopy Presentation State Storage" key="PseudoColorSoftcopyPresentationStateStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.4" name="Blending Softcopy Presentation State Storage" key="BlendingSoftcopyPresentationStateStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.11.5" name="XAXRF Grayscale Softcopy Presentation State Storage" key="XAXRFGrayscaleSoftcopyPresentationStateStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.11.6" name="Grayscale Planar MPR Volumetric Presentation State Storage" key="GrayscalePlanarMPRVolumetricPresentationStateStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.11.7" name="Compositing Planar MPR Volumetric Presentation State Storage" key="CompositingPlanarMPRVolumetricPresentationStateStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.11.8" name="Advanced Blending Presentation State Storage" key="AdvancedBlendingPresentationStateStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.11.9" name="Volume Rendering Volumetric Presentation State Storage" key="VolumeRenderingVolumetricPresentationStateStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.10" name="Segmented Volume Rendering Volumetric Presentation State Storage" key="SegmentedVolumeRenderingVolumetricPresentationStateStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.11.11" name="Multiple Volume Rendering Volumetric Presentation State Storage" key="MultipleVolumeRenderingVolumetricPresentationStateStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.12.1" name="XRay Angiographic Image Storage" key="XRayAngiographicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.12.1.1" name="Enhanced XA Image Storage" key="EnhancedXRayAngiographicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.12.2" name="XRay Radiofluoroscopic Image Storage" key="XRayRadiofluoroscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.12.2.1" name="Enhanced XRF Image Storage" key="EnhancedXRayRadiofluoroscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.12.3" name="XRay Angiographic BiPlane Image Storage (Retired)" key="XRayAngiographicBiPlaneImageStorageRetired" dirrecord="IMAGE" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.12.1" name="XRay Angiographic Image Storage" key="XRayAngiographicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.12.1.1" name="Enhanced XA Image Storage" key="EnhancedXRayAngiographicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.12.2" name="XRay Radiofluoroscopic Image Storage" key="XRayRadiofluoroscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.12.2.1" name="Enhanced XRF Image Storage" key="EnhancedXRayRadiofluoroscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.12.3" name="XRay Angiographic BiPlane Image Storage (Retired)" key="XRayAngiographicBiPlaneImageStorageRetired" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.1.1.12.77" name="(Retired)" key="Retired_5_1_4_1_1_12_77" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.13.1.1" name="XRay 3D Angiographic Image Storage" key="XRay3DAngiographicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.13.1.2" name="XRay 3D Craniofacial Image Storage" key="XRay3DCraniofacialImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.13.1.3" name="Breast Tomosynthesis Image Storage" key="BreastTomosynthesisImageStorage" dirrecord="IMAGE"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.128" name="Positron Emission Tomography Image Storage" key="PositronEmissionTomographyImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.128.1" name="Legacy Converted Enhanced PET Image Storage" key="LegacyConvertedEnhancedPETImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.129" name="Standalone PET Curve Storage (Retired)" key="StandalonePETCurveStorage" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.13.1.1" name="XRay 3D Angiographic Image Storage" key="XRay3DAngiographicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.13.1.2" name="XRay 3D Craniofacial Image Storage" key="XRay3DCraniofacialImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.13.1.3" name="Breast Tomosynthesis Image Storage" key="BreastTomosynthesisImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.13.1.4" name="Breast Projection XRay Image Storage For Presentation" key="BreastProjectionXRayImageStorageForPresentation"/>
   <uid value="1.2.840.10008.5.1.4.1.1.13.1.5" name="Breast Projection XRay Image Storage For Processing" key="BreastProjectionXRayImageStorageForProcessing"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.130" name="Enhanced PET Image Storage" key="EnhancedPETImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.131" name="Basic Structured Display Storage" key="BasicStructuredDisplayStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.14.1" name="Intravascular Optical Coherence Tomography Image Storage For Presentation" key="IntravascularOpticalCoherenceTomographyImageStorageForPresentation"/>
   <uid value="1.2.840.10008.5.1.4.1.1.14.2" name="Intravascular Optical Coherence Tomography Image Storage For Processing" key="IntravascularOpticalCoherenceTomographyImageStorageForProcessing"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.20" name="Nuclear Medicine Image Storage" key="NuclearMedicineImageStorage" dirrecord="IMAGE"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.2" name="CT Image Storage" key="CTImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.2.1" name="Enhanced CT Image Storage" key="EnhancedCTImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.2.2" name="Legacy Converted Enhanced CT Image Storage" key="LegacyConvertedEnhancedCTImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.20" name="Nuclear Medicine Image Storage" key="NuclearMedicineImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.200.1" name="CT Defined Procedure Protocol Storage" key="CTDefinedProcedureProtocolStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.200.2" name="CT Performed Procedure Protocol Storage" key="CTPerformedProcedureProtocolStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.200.3" name="Protocol Approval Storage" key="ProtocolApprovalStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.200.4" name="Protocol Approval Information Model FIND" key="ProtocolApprovalInformationModelFIND"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.200.5" name="Protocol Approval Information Model MOVE" key="ProtocolApprovalInformationModelMOVE"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.200.6" name="Protocol Approval Information Model GET" key="ProtocolApprovalInformationModelGET"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.3" name="Ultrasound Multiframe Image Storage (Retired)" key="UltrasoundMultiframeImageStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.3.1" name="Ultrasound Multiframe Image Storage" key="UltrasoundMultiframeImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.30" name="Parametric Map Storage" key="ParametricMapStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.4" name="MR Image Storage" key="MRImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.4.1" name="Enhanced MR Image Storage" key="EnhancedMRImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.4.2" name="MR Spectroscopy Storage" key="MRSpectroscopyStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.4.3" name="Enhanced MR Color Image Storage" key="EnhancedMRColorImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.4.4" name="Legacy Converted Enhanced MR Image Storage" key="LegacyConvertedEnhancedMRImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.40" name="(Retired)" key="Retired_5_1_4_1_1_40" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.66" name="Raw Data Storage" key="RawDataStorage" dirrecord="RAW DATA"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.66.1" name="Spatial Registration Storage" key="SpatialRegistrationStorage" dirrecord="REGISTRATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.66.2" name="Spatial Fiducials Storage" key="SpatialFiducialsStorage" dirrecord="FIDUCIAL"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.66.3" name="Deformable Spatial Registration Storage" key="DeformableSpatialRegistrationStorage" dirrecord="REGISTRATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.66.4" name="Segmentation Storage" key="SegmentationStorage" dirrecord="SEGMENTATION"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.66.5" name="Surface Segmentation Storage" key="SurfaceSegmentationStorage" dirrecord="SEGMENTATION"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.1" name="RT Image Storage" key="RTImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.10" name="RT Physician Intent Storage" key="RTPhysicianIntentStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.11" name="RT Segment Annotation Storage" key="RTSegmentAnnotationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.12" name="RT Radiation Set Storage" key="RTRadiationSetStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.13" name="CArm PhotonElectron Radiation Storage" key="CArmPhotonElectronRadiationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.14" name="Tomotherapeutic Radiation Storage" key="TomotherapeuticRadiationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.15" name="RoboticArm Radiation Storage" key="RoboticArmRadiationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.16" name="RTRadiationRecordSetStorage" key="RTRadiationRecordSetStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.17" name="RTRadiationSalvageRecordStorage" key="RTRadiationSalvageRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.18" name="TomotherapeuticRadiationRecordStorage" key="TomotherapeuticRadiationRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.19" name="CArmPhotonElectronRadiationRecordStorage" key="CArmPhotonElectronRadiationRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.2" name="RT Dose Storage" key="RTDoseStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.20" name="RoboticRadiationRecordStorage" key="RoboticRadiationRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.3" name="RT Structure Set Storage" key="RTStructureSetStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.4" name="RT Beams Treatment Record Storage" key="RTBeamsTreatmentRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.5" name="RT Plan Storage" key="RTPlanStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.6" name="RT Brachy Treatment Record Storage" key="RTBrachyTreatmentRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.7" name="RT Treatment Summary Record Storage" key="RTTreatmentSummaryRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.8" name="RT Ion Plan Storage" key="RTIonPlanStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.481.9" name="RT Ion Beams Treatment Record Storage" key="RTIonBeamsTreatmentRecordStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.5" name="Nuclear Medicine Image Storage (Retired)" key="NuclearMedicineImageStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.1" name="DICOS CT Image Storage" key="DICOSCTImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.2.1" name="DICOS Digital XRay Image Storage For Presentation" key="DICOSDigitalXRayImageStorageForPresentation"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.2.2" name="DICOS Digital XRay Image Storage For Processing" key="DICOSDigitalXRayImageStorageForProcessing"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.3" name="DICOS Threat Detection Report Storage" key="DICOSThreatDetectionReportStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.4" name="DICOS 2D AIT Storage" key="DICOS2DAITStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.5" name="DICOS 3D AIT Storage" key="DICOS3DAITStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.501.6" name="DICOS Quadrupole Resonance (QR) Storage" key="DICOSQuadrupoleResonanceQRStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.6" name="Ultrasound Image Storage (Retired)" key="UltrasoundImageStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.6.1" name="Ultrasound Image Storage" key="UltrasoundImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.6.2" name="Enhanced US Volume Storage" key="EnhancedUSVolumeStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.601.1" name="Eddy Current Image Storage" key="EddyCurrentImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.601.2" name="Eddy Current Multiframe Image Storage" key="EddyCurrentMultiframeImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.66" name="Raw Data Storage" key="RawDataStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.66.1" name="Spatial Registration Storage" key="SpatialRegistrationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.66.2" name="Spatial Fiducials Storage" key="SpatialFiducialsStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.66.3" name="Deformable Spatial Registration Storage" key="DeformableSpatialRegistrationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.66.4" name="Segmentation Storage" key="SegmentationStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.66.5" name="Surface Segmentation Storage" key="SurfaceSegmentationStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.66.6" name="Tractography Results Storage" key="TractographyResultsStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.67" name="Real World Value Mapping Storage" key="RealWorldValueMappingStorage" dirrecord="VALUE MAP"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.67" name="Real World Value Mapping Storage" key="RealWorldValueMappingStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.68.1" name="Surface Scan Mesh Storage" key="SurfaceScanMeshStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.68.2" name="Surface Scan Point Cloud Storage" key="SurfaceScanPointCloudStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1" name="VL Image Storage Trial (Retired)" key="VLImageStorageRetired" dirrecord="IMAGE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.2" name="VL Multiframe Image Storage Trial (Retired)" key="VLMultiframeImageStorageRetired" dirrecord="IMAGE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.1" name="VL Endoscopic Image Storage" key="VLEndoscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.1.1" name="Video Endoscopic Image Storage" key="VideoEndoscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.2" name="VL Microscopic Image Storage" key="VLMicroscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.2.1" name="Video Microscopic Image Storage" key="VideoMicroscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.3" name="VL SlideCoordinates Microscopic Image Storage" key="VLSlideCoordinatesMicroscopicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.4" name="VL Photographic Image Storage" key="VLPhotographicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.4.1" name="Video Photographic Image Storage" key="VideoPhotographicImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.1" name="Ophthalmic Photography 8 Bit Image Storage" key="OphthalmicPhotography8BitImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.2" name="Ophthalmic Photography 16 Bit Image Storage" key="OphthalmicPhotography16BitImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.3" name="Stereometric Relationship Storage" key="StereometricRelationshipStorage" dirrecord="STEREOMETRIC"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.4" name="Ophthalmic Tomography Image Storage" key="OphthalmicTomographyImageStorage" dirrecord="IMAGE"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.7" name="Secondary Capture Image Storage" key="SecondaryCaptureImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.7.1" name="Multiframe Single Bit Secondary Capture Image Storage" key="MultiframeSingleBitSecondaryCaptureImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.7.2" name="Multiframe Grayscale Byte Secondary Capture Image Storage" key="MultiframeGrayscaleByteSecondaryCaptureImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.7.3" name="Multiframe Grayscale Word Secondary Capture Image Storage" key="MultiframeGrayscaleWordSecondaryCaptureImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.7.4" name="Multiframe True Color Secondary Capture Image Storage" key="MultiframeTrueColorSecondaryCaptureImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1" name="VL Image Storage Trial (Retired)" key="VLImageStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.1" name="VL Endoscopic Image Storage" key="VLEndoscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.1.1" name="Video Endoscopic Image Storage" key="VideoEndoscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.2" name="VL Microscopic Image Storage" key="VLMicroscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.2.1" name="Video Microscopic Image Storage" key="VideoMicroscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.3" name="VL SlideCoordinates Microscopic Image Storage" key="VLSlideCoordinatesMicroscopicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.4" name="VL Photographic Image Storage" key="VLPhotographicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.4.1" name="Video Photographic Image Storage" key="VideoPhotographicImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.1" name="Ophthalmic Photography 8 Bit Image Storage" key="OphthalmicPhotography8BitImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.2" name="Ophthalmic Photography 16 Bit Image Storage" key="OphthalmicPhotography16BitImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.3" name="Stereometric Relationship Storage" key="StereometricRelationshipStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.4" name="Ophthalmic Tomography Image Storage" key="OphthalmicTomographyImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.5" name="Wide Field Ophthalmic Photography Stereographic Projection Image Storage" key="WideFieldOphthalmicPhotographyStereographicProjectionImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.6" name="Wide Field Ophthalmic Photography 3D Coordinates Image Storage" key="WideFieldOphthalmicPhotography3DCoordinatesImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.7" name="Ophthalmic Optical Coherence Tomography En Face Image Storage" key="OphthalmicOpticalCoherenceTomographyEnFaceImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.77.1.5.8" name="Ophthalmic Optical Coherence Tomography Bscan Volume Analysis Storage" key="OphthalmicOpticalCoherenceTomographyBscanVolumeAnalysisStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.77.1.6" name="VL Whole Slide Microscopy Image Storage" key="VLWholeSlideMicroscopyImageStorage" dirrecord="IMAGE"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.6" name="VL Whole Slide Microscopy Image Storage" key="VLWholeSlideMicroscopyImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.1.7" name="DermoscopicPhotographyImageStorage" key="DermoscopicPhotographyImageStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.77.2" name="VL Multiframe Image Storage Trial (Retired)" key="VLMultiframeImageStorageRetired" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.1.1.78.1" name="Lensometry Measurements Storage" key="LensometryMeasurementsStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.78.2" name="Autorefraction Measurements Storage" key="AutorefractionMeasurementsStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.78.3" name="Keratometry Measurements Storage" key="KeratometryMeasurementsStorage"/>
@@ -5222,72 +5191,50 @@
   <uid value="1.2.840.10008.5.1.4.1.1.78.7" name="Ophthalmic Axial Measurements Storage" key="OphthalmicAxialMeasurementsStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.78.8" name="Intraocular Lens Calculations Storage" key="IntraocularLensCalculationsStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.79.1" name="Macular Grid Thickness and Volume Report Storage" key="MacularGridThicknessandVolumeReportStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.8" name="Standalone Overlay Storage (Retired)" key="StandaloneOverlayStorage" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.1.1.80.1" name="Ophthalmic Visual Field Static Perimetry Measurements Storage" key="OphthalmicVisualFieldStaticPerimetryMeasurementsStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.81.1" name="Ophthalmic Thickness Map Storage" key="OphthalmicThicknessMapStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.82.1" name="Corneal Topography Map Storage" key="CornealTopographyMapStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.1" name="Text SR Storage Trial (Retired)" key="StructuredReportTextStorageRetired" dirrecord="SR DOCUMENT" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.1" name="Text SR Storage Trial (Retired)" key="StructuredReportTextStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.11" name="Basic Text SR Storage" key="BasicTextSR"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.2" name="Audio SR Storage Trial (Retired)" key="StructuredReportAudioStorageRetired" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.3" name="Detail SR Storage Trial (Retired)" key="StructuredReportDetailStorageRetired" dirrecord="SR DOCUMENT" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.4" name="Comprehensive SR Storage Trial (Retired)" key="StructuredComprehensiveStorageRetired" dirrecord="SR DOCUMENT" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.11" name="Basic Text SR Storage" key="BasicTextSR" dirrecord="SR DOCUMENT"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.22" name="Enhanced SR Storage" key="EnhancedSR" dirrecord="SR DOCUMENT"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.33" name="Comprehensive SR Storage" key="ComprehensiveSR" dirrecord="SR DOCUMENT"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.22" name="Enhanced SR Storage" key="EnhancedSR"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.3" name="Detail SR Storage Trial (Retired)" key="StructuredReportDetailStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.33" name="Comprehensive SR Storage" key="ComprehensiveSR"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.34" name="Comprehensive 3D SR Storage" key="Comprehensive3DSRStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.35" name="Extensible SR Storage" key="ExtensibleSRStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.40" name="Procedure Log Storage" key="ProcedureLogStorage" dirrecord="SR DOCUMENT"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.50" name="Mammography CAD SR Storage" key="MammographyCADSR" dirrecord="SR DOCUMENT"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.59" name="Key Object Selection Document Storage" key="KeyObjectSelectionDocument" dirrecord="KEY OBJECT DOC"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.65" name="Chest CAD SR Storage" key="ChestCADSR" dirrecord="SR DOCUMENT"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.67" name="XRay Radiation Dose SR Storage" key="XRayRadiationDoseSR" dirrecord="SR DOCUMENT"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.4" name="Comprehensive SR Storage Trial (Retired)" key="StructuredComprehensiveStorageRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.40" name="Procedure Log Storage" key="ProcedureLogStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.50" name="Mammography CAD SR Storage" key="MammographyCADSR"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.59" name="Key Object Selection Document Storage" key="KeyObjectSelectionDocument"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.65" name="Chest CAD SR Storage" key="ChestCADSR"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.67" name="XRay Radiation Dose SR Storage" key="XRayRadiationDoseSR"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.68" name="Radiopharmaceutical Radiation Dose SR Storage" key="RadiopharmaceuticalRadiationDoseSRStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.88.69" name="Colon CAD SR Storage" key="ColonCADSR" dirrecord="SR DOCUMENT"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.88.69" name="Colon CAD SR Storage" key="ColonCADSR"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.70" name="Implantation Plan SR Storage" key="ImplantationPlanSRStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.71" name="Acquisition Context SR Storage" key="AcquisitionContextSRStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.72" name="Simplified Adult Echo SR Storage" key="SimplifiedAdultEchoSRStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.73" name="Patient Radiation Dose SR Storage" key="PatientRadiationDoseSRStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.74" name="Planned Imaging Agent Administration SR Storage" key="PlannedImagingAgentAdministrationSRStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.88.75" name="Performed Imaging Agent Administration SR Storage" key="PerformedImagingAgentAdministrationSRStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9" name="Standalone Curve Storage (Retired)" key="StandaloneCurveStorage" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.1" name="Waveform Storage Trial (Retired)" key="WaveformStorageTrialRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.1.1" name="12lead ECG Waveform Storage" key="TwelveLeadECGWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.1.2" name="General ECG Waveform Storage" key="GeneralECGWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.1.3" name="Ambulatory ECG Waveform Storage" key="AmbulatoryECGWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.2.1" name="Hemodynamic Waveform Storage" key="HemodynamicWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.3.1" name="Cardiac Electrophysiology Waveform Storage" key="CardiacElectrophysiologyWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.4.1" name="Basic Voice Audio Waveform Storage" key="BasicVoiceAudioWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.4.2" name="General Audio Waveform Storage" key="GeneralAudioWaveform"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.5.1" name="Arterial Pulse Waveform Storage" key="ArterialPulseWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.6.1" name="Respiratory Waveform Storage" key="RespiratoryWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.6.2" name="MultichannelRespiratoryWaveformStorage" key="MultichannelRespiratoryWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.7.1" name="RoutineScalpElectroencephalogramWaveformStorage" key="RoutineScalpElectroencephalogramWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.7.2" name="ElectromyogramWaveformStorage" key="ElectromyogramWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.7.3" name="ElectrooculogramWaveformStorage" key="ElectrooculogramWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.7.4" name="SleepElectroencephalogramWaveformStorage" key="SleepElectroencephalogramWaveformStorage"/>
+  <uid value="1.2.840.10008.5.1.4.1.1.9.8.1" name="BodyPositionWaveformStorage" key="BodyPositionWaveformStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.1.90.1" name="Content Assessment Results Storage" key="ContentAssessmentResultsStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.104.1" name="Encapsulated PDF Storage" key="EncapsulatedPDFStorage" dirrecord="ENCAP DOC"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.104.2" name="Encapsulated CDA Storage" key="EncapsulatedCDAStorage" dirrecord="HL7 STRUC DOC"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.104.3" name="Encapsulated STL Storage" key="EncapsulatedSTLStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.104.4" name="Encapsulated OBJ Storage" key="EncapsulatedOBJStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.104.5" name="Encapsulated MTL Storage" key="EncapsulatedMTLStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.128" name="Positron Emission Tomography Image Storage" key="PositronEmissionTomographyImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.128.1" name="Legacy Converted Enhanced PET Image Storage" key="LegacyConvertedEnhancedPETImageStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.129" name="Standalone PET Curve Storage (Retired)" key="StandalonePETCurveStorage" dirrecord="CURVE" retired="true"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.130" name="Enhanced PET Image Storage" key="EnhancedPETImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.131" name="Basic Structured Display Storage" key="BasicStructuredDisplayStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.200.1" name="CT Defined Procedure Protocol Storage" key="CTDefinedProcedureProtocolStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.200.2" name="CT Performed Procedure Protocol Storage" key="CTPerformedProcedureProtocolStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.200.3" name="Protocol Approval Storage" key="ProtocolApprovalStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.200.4" name="Protocol Approval Information Model FIND" key="ProtocolApprovalInformationModelFIND"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.200.5" name="Protocol Approval Information Model MOVE" key="ProtocolApprovalInformationModelMOVE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.200.6" name="Protocol Approval Information Model GET" key="ProtocolApprovalInformationModelGET"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.1" name="RT Image Storage" key="RTImageStorage" dirrecord="IMAGE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.2" name="RT Dose Storage" key="RTDoseStorage" dirrecord="RT DOSE"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.3" name="RT Structure Set Storage" key="RTStructureSetStorage" dirrecord="RT STRUCTURE SET"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.4" name="RT Beams Treatment Record Storage" key="RTBeamsTreatmentRecordStorage" dirrecord="RT TREAT RECORD"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.5" name="RT Plan Storage" key="RTPlanStorage" dirrecord="RT PLAN"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.6" name="RT Brachy Treatment Record Storage" key="RTBrachyTreatmentRecordStorage" dirrecord="RT TREAT RECORD"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.7" name="RT Treatment Summary Record Storage" key="RTTreatmentSummaryRecordStorage" dirrecord="RT TREAT RECORD"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.8" name="RT Ion Plan Storage" key="RTIonPlanStorage" dirrecord="RT PLAN"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.9" name="RT Ion Beams Treatment Record Storage" key="RTIonBeamsTreatmentRecordStorage" dirrecord="RT TREAT RECORD"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.10" name="RT Physician Intent Storage" key="RTPhysicianIntentStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.11" name="RT Segment Annotation Storage" key="RTSegmentAnnotationStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.12" name="RT Radiation Set Storage" key="RTRadiationSetStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.13" name="CArm PhotonElectron Radiation Storage" key="CArmPhotonElectronRadiationStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.14" name="Tomotherapeutic Radiation Storage" key="TomotherapeuticRadiationStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.481.15" name="RoboticArm Radiation Storage" key="RoboticArmRadiationStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.1" name="DICOS CT Image Storage" key="DICOSCTImageStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.2.1" name="DICOS Digital XRay Image Storage For Presentation" key="DICOSDigitalXRayImageStorageForPresentation"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.2.2" name="DICOS Digital XRay Image Storage For Processing" key="DICOSDigitalXRayImageStorageForProcessing"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.3" name="DICOS Threat Detection Report Storage" key="DICOSThreatDetectionReportStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.4" name="DICOS 2D AIT Storage" key="DICOS2DAITStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.5" name="DICOS 3D AIT Storage" key="DICOS3DAITStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.501.6" name="DICOS Quadrupole Resonance (QR) Storage" key="DICOSQuadrupoleResonanceQRStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.601.1" name="Eddy Current Image Storage" key="EddyCurrentImageStorage"/>
-  <uid value="1.2.840.10008.5.1.4.1.1.601.2" name="Eddy Current Multiframe Image Storage" key="EddyCurrentMultiframeImageStorage"/>
   <uid value="1.2.840.10008.5.1.4.1.2.1.1" name="Patient Root QueryRetrieve Information Model FIND" key="PatientRootQueryRetrieveInformationModelFIND"/>
   <uid value="1.2.840.10008.5.1.4.1.2.1.2" name="Patient Root QueryRetrieve Information Model MOVE" key="PatientRootQueryRetrieveInformationModelMOVE"/>
   <uid value="1.2.840.10008.5.1.4.1.2.1.3" name="Patient Root QueryRetrieve Information Model GET" key="PatientRootQueryRetrieveInformationModelGET"/>
@@ -5309,6 +5256,7 @@
   <uid value="1.2.840.10008.5.1.4.32.3" name="General Purpose Performed Procedure Step SOP Class (Retired)" key="GeneralPurposePerformedProcedureStepSOPClass" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.33" name="Instance Availability Notification SOP Class" key="InstanceAvailabilityNotificationSOPClass"/>
   <uid value="1.2.840.10008.5.1.4.34.1" name="RT Beams Delivery Instruction Storage Trial (Retired)" key="RTBeamsDeliveryInstructionStorageSupplement74FrozenDraft" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.34.10" name="RT Brachy Application Setup Delivery Instruction Storage" key="RTBrachyApplicationSetupDeliveryInstructionStorage"/>
   <uid value="1.2.840.10008.5.1.4.34.2" name="RT Conventional Machine Verification Trial (Retired)" key="RTConventionalMachineVerificationSupplement74FrozenDraft" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.34.3" name="RT Ion Machine Verification Trial (Retired)" key="RTIonMachineVerificationSupplement74FrozenDraft" retired="true"/>
   <uid value="1.2.840.10008.5.1.4.34.4.1" name="Unified Procedure Step Push SOP Class Trial (Retired)" key="UnifiedProcedureStepPushSOPClassRetired" retired="true"/>
@@ -5323,11 +5271,10 @@
   <uid value="1.2.840.10008.5.1.4.34.7" name="RT Beams Delivery Instruction Storage" key="RTBeamsDeliveryInstructionStorage"/>
   <uid value="1.2.840.10008.5.1.4.34.8" name="RT Conventional Machine Verification" key="RTConventionalMachineVerification"/>
   <uid value="1.2.840.10008.5.1.4.34.9" name="RT Ion Machine Verification" key="RTIonMachineVerification"/>
-  <uid value="1.2.840.10008.5.1.4.34.10" name="RT Brachy Application Setup Delivery Instruction Storage" key="RTBrachyApplicationSetupDeliveryInstructionStorage"/>
   <uid value="1.2.840.10008.5.1.4.37.1" name="General Relevant Patient Information Query" key="PatientInformationQuery"/>
   <uid value="1.2.840.10008.5.1.4.37.2" name="Breast Imaging Relevant Patient Information Query" key="BreastImagingRelevantPatientInformationQuery"/>
   <uid value="1.2.840.10008.5.1.4.37.3" name="Cardiac Relevant Patient Information Query" key="CardiacRelevantPatientInformationQuery"/>
-  <uid value="1.2.840.10008.5.1.4.38.1" name="Hanging Protocol Storage" key="HangingProtocolStorage" dirrecord="HANGING PROTOCOL"/>
+  <uid value="1.2.840.10008.5.1.4.38.1" name="Hanging Protocol Storage" key="HangingProtocolStorage"/>
   <uid value="1.2.840.10008.5.1.4.38.2" name="Hanging Protocol Information Model FIND" key="HangingProtocolInformationModelFIND"/>
   <uid value="1.2.840.10008.5.1.4.38.3" name="Hanging Protocol Information Model MOVE" key="HangingProtocolInformationModelMOVE"/>
   <uid value="1.2.840.10008.5.1.4.38.4" name="Hanging Protocol Information Model GET" key="HangingProtocolInformationModelGET"/>
@@ -5349,136 +5296,176 @@
   <uid value="1.2.840.10008.5.1.4.45.2" name="Implant Template Group Information Model FIND" key="ImplantTemplateGroupInformationModelFIND"/>
   <uid value="1.2.840.10008.5.1.4.45.3" name="Implant Template Group Information Model MOVE" key="ImplantTemplateGroupInformationModelMOVE"/>
   <uid value="1.2.840.10008.5.1.4.45.4" name="Implant Template Group Information Model GET" key="ImplantTemplateGroupInformationModelGET"/>
-  <uid value="1.2.840.10008.10.1" name="Video Endoscopic Image RealTime Communication" key="VideoEndoscopicImageRealTimeCommunication"/>
-  <uid value="1.2.840.10008.10.2" name="Video Photographic Image RealTime Communication" key="VideoPhotographicImageRealTimeCommunication"/>
-  <uid value="1.2.840.10008.10.3" name="Audio Waveform RealTime Communication" key="AudioWaveformRealTimeCommunication"/>
-  <uid value="1.2.840.10008.10.4" name="Rendition Selection Document RealTime Communication" key="RenditionSelectionDocumentRealTimeCommunication"/>
-</uids>
+  <uid value="1.2.840.113543.6.6.1.3.10001" name="PrivatePhilipsHPLive3D01Storage" key="PrivatePhilipsHPLive3D01Storage"/>
+  <uid value="1.2.840.113543.6.6.1.3.10002" name="PrivatePhilipsHPLive3D02Storage" key="PrivatePhilipsHPLive3D02Storage"/>
+  <uid value="1.2.840.113619.4.2" name="PrivateGEDicomMRImageInfoObject" key="PrivateGEDicomMRImageInfoObject"/>
+  <uid value="1.2.840.113619.4.26" name="PrivateGE3DModelStorage" key="PrivateGE3DModelStorage"/>
+  <uid value="1.2.840.113619.4.27" name="PrivateGEeNTEGRAProtocolOrNMGenieStorage" key="PrivateGEeNTEGRAProtocolOrNMGenieStorage"/>
+  <uid value="1.2.840.113619.4.3" name="PrivateGEDicomCTImageInfoObject" key="PrivateGEDicomCTImageInfoObject"/>
+  <uid value="1.2.840.113619.4.30" name="PrivateGEPETRawDataStorage" key="PrivateGEPETRawDataStorage"/>
+  <uid value="1.2.840.113619.4.4" name="PrivateGEDicomDisplayImageInfoObject" key="PrivateGEDicomDisplayImageInfoObject"/>
+  <uid value="1.2.840.113619.4.5.249" name="PrivateGERTPlanStorage" key="PrivateGERTPlanStorage"/>
+  <uid value="1.3.12.2.1107.5.9.1" name="PrivateSiemensCSANonImageStorage" key="PrivateSiemensCSANonImageStorage"/>
+  <uid value="1.3.12.2.1107.5.99.3.10" name="PrivateSiemensCTMRVolumeStorage" key="PrivateSiemensCTMRVolumeStorage"/>
+  <uid value="1.3.12.2.1107.5.99.3.11" name="PrivateSiemensAXFrameSetsStorage" key="PrivateSiemensAXFrameSetsStorage"/>
+  <uid value="1.3.46.670589.11.0.0.12.1" name="PrivatePhilipsMRSpectrumStorage" key="PrivatePhilipsMRSpectrumStorage"/>
+  <uid value="1.3.46.670589.11.0.0.12.2" name="PrivatePhilipsMRSeriesDataStorage" key="PrivatePhilipsMRSeriesDataStorage"/>
+  <uid value="1.3.46.670589.11.0.0.12.3" name="PrivatePhilipsMRColorImageStorage" key="PrivatePhilipsMRColorImageStorage"/>
+  <uid value="1.3.46.670589.11.0.0.12.4" name="PrivatePhilipsMRExamcardStorage" key="PrivatePhilipsMRExamcardStorage"/>
+  <uid value="1.3.46.670589.2.11.1.1" name="PrivatePhilipsVolumeSetStorage" key="PrivatePhilipsVolumeSetStorage"/>
+  <uid value="1.3.46.670589.2.3.1.1" name="PrivatePhilipsSpecialisedXAStorage" key="PrivatePhilipsSpecialisedXAStorage"/>
+  <uid value="1.3.46.670589.2.4.1.1" name="PrivatePhilipsCXImageStorage" key="PrivatePhilipsCXImageStorage"/>
+  <uid value="1.3.46.670589.2.5.1.1" name="PrivatePhilips3DPresentationStateStorage" key="PrivatePhilips3DPresentationStateStorage"/>
+  <uid value="1.3.46.670589.5.0.1" name="PrivatePhilipsVolumeStorage" key="PrivatePhilipsVolumeStorage"/>
+  <uid value="1.3.46.670589.5.0.1.1" name="PrivatePhilipsVolume2Storage" key="PrivatePhilipsVolume2Storage"/>
+  <uid value="1.3.46.670589.5.0.10" name="PrivatePhilipsMRSyntheticImageStorage" key="PrivatePhilipsMRSyntheticImageStorage"/>
+  <uid value="1.3.46.670589.5.0.11" name="PrivatePhilipsMRCardioAnalysisStorage" key="PrivatePhilipsMRCardioAnalysisStorage"/>
+  <uid value="1.3.46.670589.5.0.11.1" name="PrivatePhilipsMRCardioAnalysis2Storage" key="PrivatePhilipsMRCardioAnalysis2Storage"/>
+  <uid value="1.3.46.670589.5.0.12" name="PrivatePhilipsCXSyntheticImageStorage" key="PrivatePhilipsCXSyntheticImageStorage"/>
+  <uid value="1.3.46.670589.5.0.13" name="PrivatePhilipsPerfusionStorage" key="PrivatePhilipsPerfusionStorage"/>
+  <uid value="1.3.46.670589.5.0.14" name="PrivatePhilipsPerfusionImageStorage" key="PrivatePhilipsPerfusionImageStorage"/>
+  <uid value="1.3.46.670589.5.0.2" name="PrivatePhilips3DObjectStorage" key="PrivatePhilips3DObjectStorage"/>
+  <uid value="1.3.46.670589.5.0.2.1" name="PrivatePhilips3DObject2Storage" key="PrivatePhilips3DObject2Storage"/>
+  <uid value="1.3.46.670589.5.0.3" name="PrivatePhilipsSurfaceStorage" key="PrivatePhilipsSurfaceStorage"/>
+  <uid value="1.3.46.670589.5.0.3.1" name="PrivatePhilipsSurface2Storage" key="PrivatePhilipsSurface2Storage"/>
+  <uid value="1.3.46.670589.5.0.4" name="PrivatePhilipsCompositeObjectStorage" key="PrivatePhilipsCompositeObjectStorage"/>
+  <uid value="1.3.46.670589.5.0.7" name="PrivatePhilipsMRCardioProfileStorage" key="PrivatePhilipsMRCardioProfileStorage"/>
+  <uid value="1.3.46.670589.5.0.8" name="PrivatePhilipsMRCardioStorage" key="PrivatePhilipsMRCardioStorage"/>
+  <uid value="1.3.46.670589.5.0.8.1" name="PrivatePhilipsMRCardio2Storage" key="PrivatePhilipsMRCardio2Storage"/>
+  <uid value="1.3.46.670589.5.0.9" name="PrivatePhilipsCTSyntheticImageStorage" key="PrivatePhilipsCTSyntheticImageStorage"/>
+  <uid value="1.3.46.670589.7.8.16185100129" name="PrivatePhilipsRunStorage" key="PrivatePhilipsRunStorage"/>
+  <uid value="1.3.46.670589.7.8.16185100130" name="PrivatePhilipsReconstructionStorage" key="PrivatePhilipsReconstructionStorage"/>
+  <uid value="1.3.46.670589.7.8.1618510091" name="PrivatePhilipsXRayMFStorage" key="PrivatePhilipsXRayMFStorage"/>
+  <uid value="1.3.46.670589.7.8.1618510092" name="PrivatePhilipsLiveRunStorage" key="PrivatePhilipsLiveRunStorage"/>
+  <uid value="1.3.6.1.4.1.16978.3.1" name="PrivateMedicalInsight3DSoftcopyPresentationStateStorage" key="PrivateMedicalInsight3DSoftcopyPresentationStateStorage"/>
+  <uid value="1.3.6.1.4.1.5962.301.1" name="PrivatePixelMedLegacyConvertedEnhancedCTImageStorage" key="PrivatePixelMedLegacyConvertedEnhancedCTImageStorage"/>
+  <uid value="1.3.6.1.4.1.5962.301.2" name="PrivatePixelMedLegacyConvertedEnhancedMRImageStorage" key="PrivatePixelMedLegacyConvertedEnhancedMRImageStorage"/>
+  <uid value="1.3.6.1.4.1.5962.301.3" name="PrivatePixelMedLegacyConvertedEnhancedPETImageStorage" key="PrivatePixelMedLegacyConvertedEnhancedPETImageStorage"/>
+  <uid value="1.3.6.1.4.1.5962.301.9" name="PrivatePixelMedFloatingPointImageStorage" key="PrivatePixelMedFloatingPointImageStorage"/>
+  <uid value="2.16.840.1.114033.5.1.4.1.1.130" name="PrivatePMODMultiframeImageStorage" key="PrivatePMODMultiframeImageStorage"/>
+ </uids>
 
-<uids type="MetaSOPClass">
-  <uid value="1.2.840.10008.3.1.2.1.4" name="Detached Patient Management Meta SOP Class" key="DetachedPatientManagementMetaSOPClass" />
-  <uid value="1.2.840.10008.3.1.2.5.4" name="Detached Results Management Meta SOP Class" key="DetachedResultsManagementMetaSOPClass" />
-  <uid value="1.2.840.10008.3.1.2.5.5" name="Detached Study Management Meta SOP Class" key="DetachedStudyManagementMetaSOPClass" />
-  <uid value="1.2.840.10008.5.1.1.9" name="Basic Grayscale Print Management Meta SOP Class" key="BasicGrayscalePrintManagement" />
-  <uid value="1.2.840.10008.5.1.1.9.1" name="Referenced Grayscale Print Management Meta SOP Class (Retired)" key="RefGrayscalePrintManagementRetired" retired="true" />
-  <uid value="1.2.840.10008.5.1.1.18" name="Basic Color Print Management Meta SOP Class" key="BasicColorPrintManagement" />
-  <uid value="1.2.840.10008.5.1.1.18.1" name="Referenced Color Print Management Meta SOP Class (Retired)" key="RefColorPrintManagementRetired" retired="true" />
-  <uid value="1.2.840.10008.5.1.1.32" name="Pull Stored Print Management Meta SOP Class" key="PullStoredPrintManagement" />
-  <uid value="1.2.840.10008.5.1.4.32" name="General Purpose Worklist Management Meta SOP Class" key="GeneralPurposeWorklistManagementMetaSOPClass" />
-</uids>
+ <uids type="MetaSOPClass">
+  <uid value="1.2.840.10008.3.1.2.1.4" name="Detached Patient Management Meta SOP Class" key="DetachedPatientManagementMetaSOPClass"/>
+  <uid value="1.2.840.10008.3.1.2.5.4" name="Detached Results Management Meta SOP Class" key="DetachedResultsManagementMetaSOPClass"/>
+  <uid value="1.2.840.10008.3.1.2.5.5" name="Detached Study Management Meta SOP Class" key="DetachedStudyManagementMetaSOPClass"/>
+  <uid value="1.2.840.10008.5.1.1.18" name="Basic Color Print Management Meta SOP Class" key="BasicColorPrintManagement"/>
+  <uid value="1.2.840.10008.5.1.1.18.1" name="Referenced Color Print Management Meta SOP Class (Retired)" key="RefColorPrintManagementRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.1.32" name="Pull Stored Print Management Meta SOP Class" key="PullStoredPrintManagement"/>
+  <uid value="1.2.840.10008.5.1.1.9" name="Basic Grayscale Print Management Meta SOP Class" key="BasicGrayscalePrintManagement"/>
+  <uid value="1.2.840.10008.5.1.1.9.1" name="Referenced Grayscale Print Management Meta SOP Class (Retired)" key="RefGrayscalePrintManagementRetired" retired="true"/>
+  <uid value="1.2.840.10008.5.1.4.32" name="General Purpose Worklist Management Meta SOP Class" key="GeneralPurposeWorklistManagementMetaSOPClass"/>
+ </uids>
 
-<uids type="SOPInstance">
-  <uid value="1.2.840.10008.1.20.1.1" name="Storage Commitment Push Model SOP Instance" key="StorageCommitmentPushModelSOPInstance" />
-  <uid value="1.2.840.10008.1.20.2.1" name="Storage Commitment Pull Model SOP Instance" key="StorageCommitmentPullModelSOPInstance" />
-  <uid value="1.2.840.10008.1.40.1" name="Procedural Event Logging SOP Instance" key="ProceduralEventLoggingSOPInstance" />
-  <uid value="1.2.840.10008.1.4.1.1" name="Talairach Brain Atlas Frame of Reference" key="TalairachBrainAtlasFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.2" name="SPM2 T1 Frame of Reference" key="SPM2T1FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.3" name="SPM2 T2 Frame of Reference" key="SPM2T2FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.4" name="SPM2 PD Frame of Reference" key="SPM2PDFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.5" name="SPM2 EPI Frame of Reference" key="SPM2EPIFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.6" name="SPM2 FIL T1 Frame of Reference" key="SPM2FILT1FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.7" name="SPM2 PET Frame of Reference" key="SPM2PETFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.8" name="SPM2 TRANSM Frame of Reference" key="SPM2TRANSMFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.9" name="SPM2 SPECT Frame of Reference" key="SPM2SPECTFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.10" name="SPM2 GRAY Frame of Reference" key="SPM2GRAYFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.11" name="SPM2 WHITE Frame of Reference" key="SPM2WHITEFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.12" name="SPM2 CSF Frame of Reference" key="SPM2CSFFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.13" name="SPM2 BRAINMASK Frame of Reference" key="SPM2BRAINMASKFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.14" name="SPM2 AVG305T1 Frame of Reference" key="SPM2AVG305T1FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.15" name="SPM2 AVG152T1 Frame of Reference" key="SPM2AVG152T1FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.16" name="SPM2 AVG152T2 Frame of Reference" key="SPM2AVG152T2FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.17" name="SPM2 AVG152PD Frame of Reference" key="SPM2AVG152PDFrameOfReference" />
-  <uid value="1.2.840.10008.1.4.1.18" name="SPM2 SINGLESUBJT1 Frame of Reference" key="SPM2SINGLESUBJT1FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.2.1" name="ICBM 452 T1 Frame of Reference" key="ICBM452T1FrameOfReference" />
-  <uid value="1.2.840.10008.1.4.2.2" name="ICBM Single Subject MRI Frame of Reference" key="ICBMSingleSubjectMRIFrameOfReference" />
-  <uid value="1.2.840.10008.5.1.1.17" name="Printer SOP Instance" key="PrinterSOPInstance" />
-  <uid value="1.2.840.10008.5.1.1.17.376" name="Printer Configuration Retrieval SOP Instance" key="PrinterConfigurationRetrievalSOPInstance" />
-  <uid value="1.2.840.10008.5.1.1.25" name="Print Queue SOP Instance" key="PrintQueueSOPInstance" />
-  <uid value="1.2.840.10008.5.1.4.34.5" name="Unified Worklist and Procedure Step SOP Instance" key="UnifiedWorklistandProcedureStepSOPInstance" />
-</uids>
+ <uids type="SOPInstance">
+  <uid value="1.2.840.10008.1.20.1.1" name="Storage Commitment Push Model SOP Instance" key="StorageCommitmentPushModelSOPInstance"/>
+  <uid value="1.2.840.10008.1.20.2.1" name="Storage Commitment Pull Model SOP Instance" key="StorageCommitmentPullModelSOPInstance"/>
+  <uid value="1.2.840.10008.1.4.1.1" name="Talairach Brain Atlas Frame of Reference" key="TalairachBrainAtlasFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.10" name="SPM2 GRAY Frame of Reference" key="SPM2GRAYFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.11" name="SPM2 WHITE Frame of Reference" key="SPM2WHITEFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.12" name="SPM2 CSF Frame of Reference" key="SPM2CSFFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.13" name="SPM2 BRAINMASK Frame of Reference" key="SPM2BRAINMASKFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.14" name="SPM2 AVG305T1 Frame of Reference" key="SPM2AVG305T1FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.15" name="SPM2 AVG152T1 Frame of Reference" key="SPM2AVG152T1FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.16" name="SPM2 AVG152T2 Frame of Reference" key="SPM2AVG152T2FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.17" name="SPM2 AVG152PD Frame of Reference" key="SPM2AVG152PDFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.18" name="SPM2 SINGLESUBJT1 Frame of Reference" key="SPM2SINGLESUBJT1FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.2" name="SPM2 T1 Frame of Reference" key="SPM2T1FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.3" name="SPM2 T2 Frame of Reference" key="SPM2T2FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.4" name="SPM2 PD Frame of Reference" key="SPM2PDFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.5" name="SPM2 EPI Frame of Reference" key="SPM2EPIFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.6" name="SPM2 FIL T1 Frame of Reference" key="SPM2FILT1FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.7" name="SPM2 PET Frame of Reference" key="SPM2PETFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.8" name="SPM2 TRANSM Frame of Reference" key="SPM2TRANSMFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.1.9" name="SPM2 SPECT Frame of Reference" key="SPM2SPECTFrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.2.1" name="ICBM 452 T1 Frame of Reference" key="ICBM452T1FrameOfReference"/>
+  <uid value="1.2.840.10008.1.4.2.2" name="ICBM Single Subject MRI Frame of Reference" key="ICBMSingleSubjectMRIFrameOfReference"/>
+  <uid value="1.2.840.10008.1.40.1" name="Procedural Event Logging SOP Instance" key="ProceduralEventLoggingSOPInstance"/>
+  <uid value="1.2.840.10008.5.1.1.17" name="Printer SOP Instance" key="PrinterSOPInstance"/>
+  <uid value="1.2.840.10008.5.1.1.17.376" name="Printer Configuration Retrieval SOP Instance" key="PrinterConfigurationRetrievalSOPInstance"/>
+  <uid value="1.2.840.10008.5.1.1.25" name="Print Queue SOP Instance" key="PrintQueueSOPInstance"/>
+  <uid value="1.2.840.10008.5.1.4.34.5" name="Unified Worklist and Procedure Step SOP Instance" key="UnifiedWorklistandProcedureStepSOPInstance"/>
+ </uids>
 
-<uids type="ApplicationContextName">
-  <uid value="1.2.840.10008.3.1.1.1" name="DICOM Application Context Name" key="DICOMApplicationContextName" />
-</uids>
+ <uids type="ApplicationContextName">
+  <uid value="1.2.840.10008.3.1.1.1" name="DICOM Application Context Name" key="DICOMApplicationContextName"/>
+ </uids>
 
-<uids type="CodingScheme">
-  <uid value="1.2.840.10008.2.6.1" name="DICOM UID Registry" key="DICOMUIDRegistry" />
-  <uid value="1.2.840.10008.2.16.4" name="DICOM Controlled Terminology Coding Scheme" key="DICOMControlledTerminologyCodingScheme" />
-</uids>
+ <uids type="CodingScheme">
+  <uid value="1.2.840.10008.2.16.4" name="DICOM Controlled Terminology Coding Scheme" key="DICOMControlledTerminologyCodingScheme"/>
+  <uid value="1.2.840.10008.2.6.1" name="DICOM UID Registry" key="DICOMUIDRegistry"/>
+ </uids>
 
-<uids type="SynchronizationFrameOfReference">
-  <uid value="1.2.840.10008.15.1.1" name="Universal Coordinated Time" key="UniversalCoordinatedTime" />
-</uids>
+ <uids type="SynchronizationFrameOfReference">
+  <uid value="1.2.840.10008.15.1.1" name="Universal Coordinated Time" key="UniversalCoordinatedTime"/>
+ </uids>
 
-<statuses>
-  <status code="0000" name="Success" type="Success" key="Success"/>
-  <status code="FE00" name="Cancel" type="Cancel" key="Cancel"/>
-  <status code="FF00" name="Pending" type="Pending" key="Pending"/>
-  <status code="0107" name="Attribute list error" type="Warning" key="AttributeListError"/>
-  <status code="0116" name="Attribute Value Out of Range" type="Warning" key="AttributeValueOutOfRange"/>
-  <status code="0122" name="Refused: SOP class not supported" type="Failure" key="SOPClassNotSupported"/>
-  <status code="0119" name="Class-instance conflict" type="Failure" key="ClassInstanceConflict"/>
-  <status code="0111" name="Duplicate SOP instance" type="Failure" key="DuplicateSOPInstance"/>
-  <status code="0210" name="Duplicate invocation" type="Failure" key="DuplicateInvocation"/>
-  <status code="0115" name="Invalid argument value" type="Failure" key="InvalidArgumentValue"/>
-  <status code="0106" name="Invalid attribute value" type="Failure" key="InvalidAttributeValue"/>
-  <status code="0117" name="Invalid object instance" type="Failure" key="InvalidObjectInstance"/>
-  <status code="0120" name="Missing attribute" type="Failure" key="MissingAttribute"/>
-  <status code="0121" name="Missing attribute value" type="Failure" key="MissingAttributeValue"/>
-  <status code="0212" name="Mistyped argument" type="Failure" key="MistypedArgument"/>
-  <status code="0114" name="No such argument" type="Failure" key="NoSuchArgument"/>
-  <status code="0105" name="No such attribute" type="Failure" key="NoSuchAttribute"/>
-  <status code="0113" name="No such event type" type="Failure" key="NoSuchEventType"/>
-  <status code="0112" name="No Such object instance" type="Failure" key="NoSuchObjectInstance"/>
-  <status code="0118" name="No Such SOP class" type="Failure" key="NoSuchSOPClass"/>
-  <status code="0110" name="Processing failure" type="Failure" key="ProcessingFailure"/>
-  <status code="0213" name="Resource limitation" type="Failure" key="ResourceLimitation"/>
-  <status code="0211" name="Unrecognized operation" type="Failure" key="UnrecognizedOperation"/>
-  <status code="0123" name="No such action type" type="Failure" key="NoSuchActionType"/>
-</statuses>
+ <statuses>
+  <status code="0000" name="Success" key="Success"/>
+  <status code="0105" name="No such attribute" key="NoSuchAttribute"/>
+  <status code="0106" name="Invalid attribute value" key="InvalidAttributeValue"/>
+  <status code="0107" name="Attribute list error" key="AttributeListError"/>
+  <status code="0110" name="Processing failure" key="ProcessingFailure"/>
+  <status code="0111" name="Duplicate SOP instance" key="DuplicateSOPInstance"/>
+  <status code="0112" name="No Such object instance" key="NoSuchObjectInstance"/>
+  <status code="0113" name="No such event type" key="NoSuchEventType"/>
+  <status code="0114" name="No such argument" key="NoSuchArgument"/>
+  <status code="0115" name="Invalid argument value" key="InvalidArgumentValue"/>
+  <status code="0116" name="Attribute Value Out of Range" key="AttributeValueOutOfRange"/>
+  <status code="0117" name="Invalid object instance" key="InvalidObjectInstance"/>
+  <status code="0118" name="No Such SOP class" key="NoSuchSOPClass"/>
+  <status code="0119" name="Class-instance conflict" key="ClassInstanceConflict"/>
+  <status code="0120" name="Missing attribute" key="MissingAttribute"/>
+  <status code="0121" name="Missing attribute value" key="MissingAttributeValue"/>
+  <status code="0122" name="Refused: SOP class not supported" key="SOPClassNotSupported"/>
+  <status code="0123" name="No such action type" key="NoSuchActionType"/>
+  <status code="0210" name="Duplicate invocation" key="DuplicateInvocation"/>
+  <status code="0211" name="Unrecognized operation" key="UnrecognizedOperation"/>
+  <status code="0212" name="Mistyped argument" key="MistypedArgument"/>
+  <status code="0213" name="Resource limitation" key="ResourceLimitation"/>
+  <status code="FE00" name="Cancel" key="Cancel"/>
+  <status code="FF00" name="Pending" key="Pending"/>
+ </statuses>
 
-<statuses service="Storage">
-  <status code="A7xx" name="Out of Resources" type="Failure" key="StorageOutOfResources"/>
-  <status code="A9xx" name="Data Set does not match SOP Class (Error)" type="Failure" key="DataSetDoesNotMatchSOPClassError"/>
-  <status code="Cxxx" name="Cannot understand" type="Failure" key="CannotUnderstand"/>
-  <status code="B000" name="Coercion of Data Elements" type="Warning" key="CoercionOfDataElements"/>
-  <status code="B007" name="Data Set does not match SOP Class (Warning)" type="Warning" key="DataSetDoesNotMatchSOPClassWarning"/>
-  <status code="B006" name="Elements Discarded" type="Warning" key="ElementsDiscarded"/>
-</statuses>
+ <statuses service="Storage">
+  <status code="A7xx" name="Out of Resources" key="StorageOutOfResources"/>
+  <status code="A9xx" name="Data Set does not match SOP Class (Error)" key="DataSetDoesNotMatchSOPClassError"/>
+  <status code="B006" name="Elements Discarded" key="ElementsDiscarded"/>
+  <status code="B007" name="Data Set does not match SOP Class (Warning)" key="DataSetDoesNotMatchSOPClassWarning"/>
+ </statuses>
 
-<statuses service="QueryRetrieve">
-  <status code="A700" name="Out of Resources" type="Failure" key="OutOfResources"/>
-  <status code="A701" name="Unable to calculate number of matches" type="Failure" key="UnableToCalculateNumberOfMatches"/>
-  <status code="A702" name="Unable to perform suboperations" type="Failure" key="UnableToPerformSuboperations"/>
-  <status code="A801" name="Move Destination unknown" type="Failure" key="MoveDestinationUnknown"/>
-  <status code="A900" name="Identifier does not match SOP Class" type="Failure" key="IdentifierDoesNotMatchSOPClass"/>
-  <status code="Cxxx" name="Unable to process" type="Failure" key="UnableToProcess"/>
-  <status code="FF01" name="Optional Keys Not Supported" type="Pending" key="OptionalKeysNotSupported"/>
-  <status code="B000" name="Sub-operations Complete - One or more Failures" type="Warning" key="SubOpsOneOrMoreFailures"/>
-</statuses>
+ <statuses service="QueryRetrieve">
+  <status code="A700" name="Out of Resources" key="OutOfResources"/>
+  <status code="A701" name="Unable to calculate number of matches" key="UnableToCalculateNumberOfMatches"/>
+  <status code="A702" name="Unable to perform suboperations" key="UnableToPerformSuboperations"/>
+  <status code="A801" name="Move Destination unknown" key="MoveDestinationUnknown"/>
+  <status code="A900" name="Identifier does not match SOP Class" key="IdentifierDoesNotMatchSOPClass"/>
+  <status code="Cxxx" name="Unable to process" key="UnableToProcess"/>
+  <status code="FF01" name="Optional Keys Not Supported" key="OptionalKeysNotSupported"/>
+ </statuses>
 
-<statuses service="PrintManagement">
-  <status code="B000" name="Memory allocation not supported" type="Warning" key="MemoryAllocationNotSupported"/>
-  <status code="B601" name="Film session printing (collation) is not supported" type="Warning" key="FilmSessionPrintingNotSupported"/>
-  <status code="B602" name="Film session SOP instance hierarchy does not contain image box SOP instances (empty page)" type="Warning" key="FilmSessionEmptyPage"/>
-  <status code="B603" name="Film box SOP instance hierarchy does not contain image box SOP instances (empty page)" type="Warning" key="FilmBoxEmptyPage"/>
-  <status code="B604" name="Image size is larger than image box size, the image has been demagnified" type="Warning" key="ImageDemagnified"/>
-  <status code="B605" name="Requested min density or max density outside of printer's operating range" type="Warning" key="MinMaxDensityOutOfRange"/>
-  <status code="B609" name="Image size is larger than the image box size, the Image has been cropped to fit" type="Warning" key="ImageCropped"/>
-  <status code="B60A" name="Image size or combined print image size is larger than the image box size, image or combined print image has been decimated to fit" type="Warning" key="ImageDecimated"/>
-  <status code="C600" name="Film session SOP instance hierarchy does not contain film box SOP instances" type="Failure" key="FilmSessionEmpty"/>
-  <status code="C601" name="Unable to create Print Job SOP Instance; print queue is full" type="Failure" key="PrintQueueFull"/>
-  <status code="C603" name="Image size is larger than image box size" type="Failure" key="ImageLargerThanImageBox"/>
-  <status code="C605" name="Insufficient memory in printer to store the image" type="Failure" key="InsufficientMemoryInPrinter"/>
-  <status code="C613" name="Combined Print Image size is larger than the Image Box size" type="Failure" key="CombinedImageLargerThanImageBox"/>
-  <status code="C616" name="There is an existing film box that has not been printed and N-ACTION at the Film Session level is not supported." type="Failure" key="ExistingFilmBoxNotPrinted"/>
-</statuses>
+ <statuses service="PrintManagement">
+  <status code="B000" name="Memory allocation not supported" key="MemoryAllocationNotSupported"/>
+  <status code="B601" name="Film session printing (collation) is not supported" key="FilmSessionPrintingNotSupported"/>
+  <status code="B602" name="Film session SOP instance hierarchy does not contain image box SOP instances (empty page)" key="FilmSessionEmptyPage"/>
+  <status code="B603" name="Film box SOP instance hierarchy does not contain image box SOP instances (empty page)" key="FilmBoxEmptyPage"/>
+  <status code="B604" name="Image size is larger than image box size, the image has been demagnified" key="ImageDemagnified"/>
+  <status code="B605" name="Requested min density or max density outside of printer's operating range" key="MinMaxDensityOutOfRange"/>
+  <status code="B609" name="Image size is larger than the image box size, the Image has been cropped to fit" key="ImageCropped"/>
+  <status code="B60A" name="Image size or combined print image size is larger than the image box size, image or combined print image has been decimated to fit" key="ImageDecimated"/>
+  <status code="C600" name="Film session SOP instance hierarchy does not contain film box SOP instances" key="FilmSessionEmpty"/>
+  <status code="C601" name="Unable to create Print Job SOP Instance; print queue is full" key="PrintQueueFull"/>
+  <status code="C603" name="Image size is larger than image box size" key="ImageLargerThanImageBox"/>
+  <status code="C605" name="Insufficient memory in printer to store the image" key="InsufficientMemoryInPrinter"/>
+  <status code="C613" name="Combined Print Image size is larger than the Image Box size" key="CombinedImageLargerThanImageBox"/>
+  <status code="C616" name="There is an existing film box that has not been printed and N-ACTION at the Film Session level is not supported." key="ExistingFilmBoxNotPrinted"/>
+ </statuses>
 
-<statuses service="MediaCreationManagement">
-  <status code="A510" name="Refused because an Initiate Media Creation action has already been received for this SOP Instance" type="Failure" key="DuplicateInitiateMediaCreation" />
-  <status code="C201" name="Media creation request already completed" type="Failure" key="MediaCreationRequestAlreadyCompleted" />
-  <status code="C202" name="Media creation request already in progress and cannot be interrupted" type="Failure" key="MediaCreationRequestAlreadyInProgress" />
-  <status code="C203" name="Cancellation denied for unspecified reason" type="Failure" key="CancellationDeniedForUnspecifiedReason" />
-</statuses>
+ <statuses service="MediaCreationManagement">
+  <status code="A510" name="Refused because an Initiate Media Creation action has already been received for this SOP Instance" key="DuplicateInitiateMediaCreation"/>
+  <status code="C201" name="Media creation request already completed" key="MediaCreationRequestAlreadyCompleted"/>
+  <status code="C202" name="Media creation request already in progress and cannot be interrupted" key="MediaCreationRequestAlreadyInProgress"/>
+  <status code="C203" name="Cancellation denied for unspecified reason" key="CancellationDeniedForUnspecifiedReason"/>
+ </statuses>
 
 </dictionary>

@@ -18,6 +18,9 @@
    <property name="javac.target" value="1.4"/>
 
    <target name="init">
+		<echo message="=================================================="/>
+		<echo message="Building ${ant.project.name}"/>
+		<echo message="=================================================="/>
 		<tstamp>
 			<format property="TODAY" pattern="yyyy.MM.dd"/>
 			<format property="today" pattern="yyyy.MM.dd"/>
